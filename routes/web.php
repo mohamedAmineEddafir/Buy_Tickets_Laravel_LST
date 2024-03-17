@@ -28,5 +28,5 @@ Route::get('/forgot_password', [ClientControlle::class, 'forgotPassword']);
 Route::get('/about_us', [ClientControlle::class, 'aboutUs']);
 
 
-// AdminControlller
+// AdminControlller/////////////////////////
 Route::get('/dashbord',[AdminController::class,'dashbord']);
