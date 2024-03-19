@@ -30,3 +30,5 @@ Route::get('/about_us', [ClientControlle::class, 'aboutUs']);
 
 // AdminControlller/////////////////////////
 Route::get('/dashbord',[AdminController::class,'dashbord']);
+Route::get('/events',[AdminController::class,'events']);
+Route::get('/my_teams',[AdminController::class,'my_teams']);

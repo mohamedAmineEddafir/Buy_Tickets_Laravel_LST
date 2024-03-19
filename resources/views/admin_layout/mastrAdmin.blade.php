@@ -9,7 +9,7 @@
 		<title>Barren - Simple Online Event Ticketing System</title>
 		
 		<!-- Favicon Icon -->
-		<link rel="icon" type="image/png" href="images/fav.png">
+		<link rel="icon" type="image/png" href="{{('frontend/images/fav.pn')}}g">
 		
 		<!-- Stylesheets -->
 		<link rel="preconnect" href="https://fonts.googleapis.com/">

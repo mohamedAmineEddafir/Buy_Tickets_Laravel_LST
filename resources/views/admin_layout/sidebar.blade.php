@@ -3,7 +3,7 @@
         <div class="left_section">
             <ul>
                 <li class="menu--item">
-                    <a href="my_organisation_dashboard.html" class="menu--link" title="Dashboard" data-bs-toggle="tooltip" data-bs-placement="right">
+                    <a href="{{url('/dashbord')}}" class="menu--link" title="Dashboard" data-bs-toggle="tooltip" data-bs-placement="right">
                         <i class="fa-solid fa-gauge menu--icon"></i>
                         <span class="menu--label">Dashboard</span>
                     </a>
@@ -40,7 +40,7 @@
                 </li>
            
                 <li class="menu--item">
-                    <a href="my_organisation_dashboard_my_team.html" class="menu--link team-lock" title="My Team" data-bs-toggle="tooltip" data-bs-placement="right"> 
+                    <a href="{{url('/my_teams')}}" class="menu--link team-lock" title="My Team" data-bs-toggle="tooltip" data-bs-placement="right"> 
                         <i class="fa-solid fa-user-group menu--icon"></i>
                         <span class="menu--label">My Team</span>
                     </a>
