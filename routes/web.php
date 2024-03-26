@@ -27,8 +27,11 @@ Route::get('/sign_in', [ClientControlle::class, 'signIn']);
 Route::get('/forgot_password', [ClientControlle::class, 'forgotPassword']);
 Route::get('/about_us', [ClientControlle::class, 'aboutUs']);
 
+Route::post('/createaccount',[ClientControlle::class,'createaccount']);
+
 
 // AdminControlller/////////////////////////
 Route::get('/dashbord',[AdminController::class,'dashbord']);
 Route::get('/events',[AdminController::class,'events']);
 Route::get('/my_teams',[AdminController::class,'my_teams']);
+

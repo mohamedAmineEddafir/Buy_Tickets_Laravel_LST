@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Client;
 use Illuminate\Http\Request;
 
 class ClientControlle extends Controller
@@ -49,5 +50,36 @@ class ClientControlle extends Controller
     public function aboutUs()
     {
         return view('client.about_us');
+    }
+
+
+
+
+
+    public function createaccount(Request $request){
+        $this->validate($request,[
+            'first_name' => 'required|max:30',
+            'last_name' => 'required|max:30',
+            'email' => 'required|email|unique:clients',
+            'phone' => 'nullable|string|max:255',
+            'password' => 'required|min:4',
+            'avatar' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', 
+        ]);
+        if ($request->hasFile('avatar')) {
+            $avatar = $request->file('avatar');
+            $avatarName = time() . '.' . $avatar->getClientOriginalExtension();
+            $avatar->move(public_path('avatars'), $avatarName);
+        } else {
+            $avatarName = null;
+        }
+        $client=new Client();
+        $client->first_name=$request->input('first_name');
+        $client->last_name=$request->input('last_name');
+        $client->email=$request->input('email');
+        $client->phone=$request->input('phone');
+        $client->password=bcrypt($request->input('password'));
+        $client->avatar = $avatarName;
+        $client->save();
+        return redirect('/sign_in')->with('success', 'Your account has been successfully created.');
     }
 }

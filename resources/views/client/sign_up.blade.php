@@ -60,7 +60,9 @@
 						</div>
 						<div class="col-xl-5 col-lg-6 col-md-7">
 							<div class="registration">
-								<form>
+								
+								<form action="{{ url('createaccount') }}" method="POST" enctype="multipart/form-data">
+								 @csrf
 									<h2 class="registration-title">Sign up to Barren</h2>
 									<div class="row mt-3">
 										<div class="col-lg-12 col-md-12">
@@ -68,32 +70,32 @@
 												<label class="form-label">Avatar*</label>
 												<span class="org_design_button btn-file">
 													<span><i class="fa-solid fa-camera"></i></span>
-													<input type="file" id="org_avatar" accept="image/*" name="Organisation_avatar">
+													<input type="file" id="org_avatar" name="avatar" accept="image/*" required>
 												</span>																								
 											</div>
 										</div>
 										<div class="col-lg-6 col-md-12">
 											<div class="form-group mt-4">
 												<label class="form-label">First Name*</label>
-												<input class="form-control h_50" type="text" placeholder="" value="">																								
+												<input class="form-control h_50" name="first_name" type="text" placeholder="" value="" required>																								
 											</div>
 										</div>
 										<div class="col-lg-6 col-md-12">
 											<div class="form-group mt-4">
 												<label class="form-label">Last Name*</label>
-												<input class="form-control h_50" type="text" placeholder="" value="">																								
+												<input class="form-control h_50" name="last_name" type="text" placeholder="" value="" required>																								
 											</div>
 										</div>
 										<div class="col-lg-12 col-md-12">
 											<div class="form-group mt-4">
 												<label class="form-label">Your Email*</label>
-												<input class="form-control h_50" type="email" placeholder="" value="">																								
+												<input class="form-control h_50" name="email" type="email" placeholder="" value="" required>																								
 											</div>
 										</div>
 										<div class="col-lg-12 col-md-12">
 											<div class="form-group mt-4">
 												<label class="form-label">Phone</label>
-												<input class="form-control h_50" type="tel" placeholder="" value="">																								
+												<input class="form-control h_50"  name="phone" type="tel" placeholder="" value="" required>																								
 											</div>
 										</div>
 										<div class="col-lg-12 col-md-12">	
@@ -102,7 +104,7 @@
 													<label class="form-label">Password*</label>
 												</div>
 												<div class="loc-group position-relative">
-													<input class="form-control h_50" type="password" placeholder="">
+													<input class="form-control h_50" name="password" type="password" placeholder="">
 													<span class="pass-show-eye"><i class="fas fa-eye-slash"></i></span>
 												</div>
 											</div>

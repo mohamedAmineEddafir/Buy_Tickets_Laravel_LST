@@ -21,6 +21,7 @@
 		<link href="{{asset('frontend/css/style.css')}}" rel="stylesheet">
 		<link href="{{asset('frontend/css/responsive.css')}}" rel="stylesheet">
 		<link href="{{asset('frontend/css/night-mode.css')}}" rel="stylesheet">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js" integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 		
 		<!-- Vendor Stylesheets -->
 		<link href="{{asset('frontend/vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet">
@@ -63,6 +64,12 @@
 						</div>
 						<div class="col-xl-5 col-lg-6 col-md-7">
 							<div class="registration">
+								@if (Session::has("success"))
+									<div class="alert alert-success">
+									{{Session::get('success')}}
+									</div>
+								@endif
+									
 								<form>
 									<h2 class="registration-title">Sign in to Barren</h2>
 									<div class="form-group mt-5">
