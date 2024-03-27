@@ -69,24 +69,29 @@
 									{{Session::get('success')}}
 									</div>
 								@endif
-									
-								<form>
+								@if(Session::has('error'))
+									<div class="alert alert-danger">
+										{{Session::get('error')}}
+									</div>
+                                @endif	
+								<form action="{{ url('accessaccount') }}" method="POST">
+									@csrf
 									<h2 class="registration-title">Sign in to Barren</h2>
 									<div class="form-group mt-5">
 										<label class="form-label">Your Email*</label>
-										<input class="form-control h_50" type="email" placeholder="Enter your email" value="">																								
+										<input class="form-control h_50" name="email" type="email" placeholder="Enter your email" value="" required>																								
 									</div>
 									<div class="form-group mt-4">
 										<div class="field-password">
 											<label class="form-label">Password*</label>
-											<a class="forgot-pass-link" href="forgot_password.html">Forgot Password?</a>
+											<a class="forgot-pass-link"  href="forgot_password.html">Forgot Password?</a>
 										</div>
 										<div class="loc-group position-relative">
-											<input class="form-control h_50" type="password" placeholder="Enter your password">
+											<input class="form-control h_50" name="password" type="password" placeholder="Enter your password" required>
 											<span class="pass-show-eye"><i class="fas fa-eye-slash"></i></span>
 										</div>
 									</div>
-									<button class="main-btn btn-hover w-100 mt-4" type="button" onclick="window.location.href='index.html'">Sign In <i class="fas fa-sign-in-alt ms-2"></i></button>
+									<button class="main-btn btn-hover w-100 mt-4" type="submit">Sign In <i class="fas fa-sign-in-alt ms-2"></i></button>
 								</form>
 								<div class="divider">
 									<span>or</span>
@@ -102,7 +107,7 @@
 									</button>
 								</div>
 								<div class="new-sign-link">
-									New to Barren?<a class="signup-link" href="sign_up.html">Sign up</a>
+									New to Barren?<a class="signup-link">Sign up</a>
 								</div>
 							</div>							
 						</div>

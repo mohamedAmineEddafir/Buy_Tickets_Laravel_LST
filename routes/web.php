@@ -28,6 +28,7 @@ Route::get('/forgot_password', [ClientControlle::class, 'forgotPassword']);
 Route::get('/about_us', [ClientControlle::class, 'aboutUs']);
 
 Route::post('/createaccount',[ClientControlle::class,'createaccount']);
+Route::post('/accessaccount',[ClientControlle::class, 'accessaccount']);
 
 
 // AdminControlller/////////////////////////

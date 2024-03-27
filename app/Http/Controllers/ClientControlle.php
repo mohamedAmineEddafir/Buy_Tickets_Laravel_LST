@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Client;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Http\Request;
 
 class ClientControlle extends Controller
@@ -82,4 +84,22 @@ class ClientControlle extends Controller
         $client->save();
         return redirect('/sign_in')->with('success', 'Your account has been successfully created.');
     }
+
+    public function accessaccount(Request $request){
+        $this->validate($request,[
+            'email'=>'email|required'
+        ]);
+
+        $client= Client::where('email',$request->email)->first();
+        if($client){
+            if(hash::check($request->input('password'),$client->password)){
+                Session::put('client',$client);
+                return redirect('/');
+            }
+            return back()->with('error','Wrong Password or Email');
+        }
+        return back()->with('error','You do not have an account with this email');
+    }
+
+
 }
