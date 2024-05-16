@@ -1,7 +1,5 @@
 <?php
 
-use App\Http\Controllers\AdminController;
-use App\Http\Controllers\ClientControlle;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,30 +13,58 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-//ClientController
 
+/*----------------------------------------------------Client--------------------------------------------*/
+
+            
 Route::get('/', function () {
-    return View("client.index");
+    return view('client.index');
 });
-Route::get('/explore_events', function (){
-    return View("client.explore_events");
+
+Route::get('/explore_events', function () {
+    return view('client.explore_events');
 });
-Route::get('/online_event_detail_view', function (){
-    return View("")
+
+Route::get('/online_event_detail_view', function () {
+    return view('client.online_event_detail_view');
 });
-Route::get('/venue_event_detail_view', [ClientControlle::class, 'venueEventDetailView']);
-Route::get('/contact_us', [ClientControlle::class, 'contactUs']);
-Route::get('/sign_up', [ClientControlle::class, 'signUp']);
-Route::get('/sign_in', [ClientControlle::class, 'signIn']);
-Route::get('/forgot_password', [ClientControlle::class, 'forgotPassword']);
-Route::get('/about_us', [ClientControlle::class, 'aboutUs']);
 
-Route::post('/createaccount',[ClientControlle::class,'createaccount']);
-Route::post('/accessaccount',[ClientControlle::class, 'accessaccount']);
+Route::get('/venue_event_detail_view', function () {
+    return view('client.venue_event_detail_view');
+});
 
+ Route::get('/contact_us', function () {
+    return view('client.contact_us');
+});
 
-// AdminControlller/////////////////////////
-Route::get('/dashbord',[AdminController::class,'dashbord']);
-Route::get('/events',[AdminController::class,'events']);
-Route::get('/my_teams',[AdminController::class,'my_teams']);
+Route::get('/sign_up', function () {
+    return view('client.sign_up');
+});
 
+Route::get('/sign_in', function () {
+     return view('client.sign_in');
+});
+
+Route::get('/forgot_password', function () {
+    return view('client.forgot_password');
+});
+        
+Route::get('/about_us', function () {
+    return view('client.about_us');
+});
+            
+            
+/*----------------------------------------------------Admin--------------------------------------------*/
+                
+            
+Route::get('/dashbord', function () {
+    return view('admin.dashbord');
+ });
+
+Route::get('/events', function () {
+     return view('admin.events');
+});
+
+Route::get('/my_teams', function () {
+    return view('admin.my_teams');
+});
