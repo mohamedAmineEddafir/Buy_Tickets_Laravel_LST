@@ -63,6 +63,12 @@
 											</div>
 											<div class="col-md-12">
 												<div class="form-group mt-4">
+													<label class="form-label">Date Start*</label>
+													<input class="form-control h_50" type="Date" placeholder="" value="">																								
+												</div>
+											</div>
+											<div class="col-md-12">
+												<div class="form-group mt-4">
 													<label class="form-label">Message*</label>
 													<textarea class="form-textarea" placeholder="About"></textarea>																								
 												</div>

@@ -17,9 +17,15 @@ use Illuminate\Support\Facades\Route;
 
 //ClientController
 
-Route::get('/', [ClientControlle::class, 'index']);
-Route::get('/explore_events', [ClientControlle::class, 'exploreEvents']);
-Route::get('/online_event_detail_view', [ClientControlle::class, 'onlineEventDetailView']);
+Route::get('/', function () {
+    return View("client.index");
+});
+Route::get('/explore_events', function (){
+    return View("client.explore_events");
+});
+Route::get('/online_event_detail_view', function (){
+    return View("")
+});
 Route::get('/venue_event_detail_view', [ClientControlle::class, 'venueEventDetailView']);
 Route::get('/contact_us', [ClientControlle::class, 'contactUs']);
 Route::get('/sign_up', [ClientControlle::class, 'signUp']);
