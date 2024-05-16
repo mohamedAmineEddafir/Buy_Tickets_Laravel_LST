@@ -11,23 +11,23 @@
 		<title>Barren - Simple Online Event Ticketing System</title>
 		
 		<!-- Favicon Icon -->
-		<link rel="icon" type="image/png" href="{{asset('frontend/images/fav.png')}}">
+		<link rel="icon" type="image/png" href="{{asset('assets/images/fav.png')}}">
 		
 		<!-- Stylesheets -->
 		<link rel="preconnect" href="https://fonts.googleapis.com/">
 		<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&amp;display=swap" rel="stylesheet">
-		<link href='{{asset('frontend/vendor/unicons-2.0.1/css/unicons.css')}}' rel='stylesheet'>
-		<link href="{{asset('frontend/css/style.css')}}" rel="stylesheet">
-		<link href="{{asset('frontend/css/responsive.css')}}" rel="stylesheet">
-		<link href="{{asset('frontend/css/night-mode.css')}}" rel="stylesheet">
+		<link href="{{asset('assets/vendor/unicons-2.0.1/css/unicons.css')}}" rel="stylesheet">
+		<link href="{{asset('assets/css/style.css')}}" rel="stylesheet">
+		<link href="{{asset('assets/css/responsive.css')}}" rel="stylesheet">
+		<link href="{{asset('assets/css/night-mode.css')}}" rel="stylesheet">
 		
 		<!-- Vendor Stylesheets -->
-		<link href="{{asset('frontend/vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet">
-		<link href="{{asset('frontend/vendor/OwlCarousel/assets/owl.carousel.css')}}" rel="stylesheet">
-		<link href="{{asset('frontend/vendor/OwlCarousel/assets/owl.theme.default.min.css')}}" rel="stylesheet">
-		<link href="{{asset('frontend/vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
-		<link href="{{asset('frontend/vendor/bootstrap-select/dist/css/bootstrap-select.min.css')}}" rel="stylesheet">		
+		<link href="{{asset('assets/vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet">
+		<link href="{{asset('assets/vendor/OwlCarousel/assets/owl.carousel.css')}}" rel="stylesheet">
+		<link href="{{asset('assets/vendor/OwlCarousel/assets/owl.theme.default.min.css')}}" rel="stylesheet">
+		<link href="{{asset('assets/vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
+		<link href="{{asset('assets/vendor/bootstrap-select/dist/css/bootstrap-select.min.css')}}" rel="stylesheet">		
 		
 	</head>
 
@@ -93,7 +93,7 @@
 								<div class="col-lg-4 col-md-12">
 									<a href="#" class="main-card communities-item" data-bs-toggle="modal" data-bs-target="#communitieModal">
 										<div class="communities-img">
-											<img src="{{asset('frontend/images/about/img-1.jpg')}}" alt="">
+											<img src="{{asset('assets/images/about/img-1.jpg')}}" alt="">
 										</div>
 										<div class="communities-content">
 											<p>We work with several industry leaders and community groups around Australia and want all of our event organisers to succeed in everything they do. Events are not always easy, but selling tickets online should be.</p>
@@ -103,7 +103,7 @@
 								<div class="col-lg-4 col-md-12">
 									<a href="#" class="main-card communities-item" data-bs-toggle="modal" data-bs-target="#communitieModal">
 										<div class="communities-img">
-											<img src="{{asset('frontend/images/about/img-2.jpg')}}" alt="">
+											<img src="{{asset('assets/images/about/img-2.jpg')}}" alt="">
 										</div>
 										<div class="communities-content">
 											<p>We are committed to making a positive impact on the community. That's why our pricing structure is set so that everyone can afford to use Barren, and it's why we offer our system free of charge for any free events or registrations.</p>
@@ -113,7 +113,7 @@
 								<div class="col-lg-4 col-md-12">
 									<a href="#" class="main-card communities-item" data-bs-toggle="modal" data-bs-target="#communitieModal">
 										<div class="communities-img">
-											<img src="{{asset('frontend/images/about/img-3.jpg')}}" alt="">
+											<img src="{{asset('assets/images/about/img-3.jpg')}}" alt="">
 										</div>
 										<div class="communities-content">
 											<p>This provides an additional revenue stream for your charity and allows us to positively contribute to the causes that are important to you and your community.</p>
@@ -170,7 +170,7 @@
 									</div>
 									<div class="col-lg-6">
 										<div class="feature-img">
-											<img src="{{asset('frontend/images/about/feature-1.png')}}" alt="">											
+											<img src="{{asset('assets/images/about/feature-1.png')}}" alt="">											
 										</div>
 									</div>
 								</div>
@@ -201,7 +201,7 @@
 									</div>
 									<div class="col-lg-6">
 										<div class="feature-img">
-											<img src="{{asset('frontend/images/about/feature-2.png')}}" alt="">											
+											<img src="{{asset('assets/images/about/feature-2.png')}}" alt="">											
 										</div>
 									</div>
 								</div>
@@ -232,7 +232,7 @@
 									</div>
 									<div class="col-lg-6">
 										<div class="feature-img">
-											<img src="{{asset('frontend/images/about/feature-3.png')}}" alt="">											
+											<img src="{{asset('assets/images/about/feature-3.png')}}" alt="">											
 										</div>
 									</div>
 								</div>
@@ -263,7 +263,7 @@
 									</div>
 									<div class="col-lg-6">
 										<div class="feature-img">
-											<img src="{{asset('frontend/images/about/feature-4.png')}}" alt="">											
+											<img src="{{asset('assets/images/about/feature-4.png')}}" alt="">											
 										</div>
 									</div>
 								</div>
@@ -294,7 +294,7 @@
 									</div>
 									<div class="col-lg-6">
 										<div class="feature-img">
-											<img src="{{asset('frontend/images/about/feature-5.png')}}" alt="">											
+											<img src="{{asset('assets/images/about/feature-5.png')}}" alt="">											
 										</div>
 									</div>
 								</div>
@@ -319,7 +319,7 @@
 								<div class="col-xl-3 col-lg-4 col-md-6 col-12">
 									<div class="main-card team-card">
 										<div class="team-img">
-											<img src="{{asset('frontend/images/about/team-1.jpg')}}" alt="">
+											<img src="{{asset('assets/images/about/team-1.jpg')}}" alt="">
 										</div>
 										<div class="team-content">
 											<h4>Rock William</h4>
@@ -336,7 +336,7 @@
 								<div class="col-xl-3 col-lg-4 col-md-6 col-12">
 									<div class="main-card team-card">
 										<div class="team-img">
-											<img src="{{asset('frontend/images/about/team-2.jpg')}}" alt="">
+											<img src="{{asset('assets/images/about/team-2.jpg')}}" alt="">
 										</div>
 										<div class="team-content">
 											<h4>Brian Mills</h4>
@@ -365,12 +365,12 @@
 	<!-- Footer End-->
 	
 	
-	<script src="{{asset('frontend/js/jquery.min.js')}}"></script>
-	<script src="{{asset('frontend/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
-	<script src="{{asset('frontend/vendor/OwlCarousel/owl.carousel.js')}}"></script>
-	<script src="{{asset('frontend/vendor/bootstrap-select/dist/js/bootstrap-select.min.js')}}"></script>	
-	<script src="{{asset('frontend/js/custom.js')}}"></script>
-	<script src="{{asset('frontend/js/night-mode.js')}}"></script>
+	<script src="{{asset('assets/js/jquery.min.js')}}"></script>
+	<script src="{{asset('assets/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+	<script src="{{asset('assets/vendor/OwlCarousel/owl.carousel.js')}}"></script>
+	<script src="{{asset('assets/vendor/bootstrap-select/dist/js/bootstrap-select.min.js')}}"></script>	
+	<script src="{{asset('assets/js/custom.js')}}"></script>
+	<script src="{{asset('assets/js/night-mode.js')}}"></script>
 </body>
 
 <!-- Mirrored from www.gambolthemes.net/html-items/barren-html/disable-demo-link/about_us.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 11 Mar 2024 23:04:03 GMT -->

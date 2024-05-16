@@ -86,7 +86,7 @@
                         <div class="main-card add-organisation-card p-4 mt-5">
                             <div class="ocard-left">
                                 <div class="ocard-avatar">
-                                    <img src="{{asset('frontend/images/profile-imgs/img-13.jpg')}}" alt="">
+                                    <img src="{{asset('assets/images/profile-imgs/img-13.jpg')}}" alt="">
                                 </div>
                                 <div class="ocard-name">
                                     <h4>John Doe</h4>

@@ -49,8 +49,8 @@
 						<div class="footer-content">
 							<h4>Download Mobile App</h4>
 							<div class="download-app-link">
-								<a href="#" class="download-btn"><img src="{{asset('frontend/images/app-store.png')}}" alt=""></a>
-								<a href="#" class="download-btn"><img src="{{asset('frontend/images/google-play.png')}}" alt=""></a>
+								<a href="#" class="download-btn"><img src="{{asset('assets/images/app-store.png')}}" alt=""></a>
+								<a href="#" class="download-btn"><img src="{{asset('assets/images/google-play.png')}}" alt=""></a>
 							</div>
 						</div>
 					</div>

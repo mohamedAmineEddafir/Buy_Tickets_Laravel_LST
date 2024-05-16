@@ -11,23 +11,23 @@
 		<title>Barren - Simple Online Event Ticketing System</title>
 		
 		<!-- Favicon Icon -->
-		<link rel="icon" type="image/png" href="{{asset('frontend/images/fav.png')}}">
+		<link rel="icon" type="image/png" href="{{asset('assets/images/fav.png')}}">
 		
 		<!-- Stylesheets -->
 		<link rel="preconnect" href="https://fonts.googleapis.com/">
 		<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&amp;display=swap" rel="stylesheet">
-		<link href='{{asset('frontend/vendor/unicons-2.0.1/css/unicons.css')}}' rel='stylesheet'>
-		<link href="{{asset('frontend/css/style.css')}}" rel="stylesheet">
-		<link href="{{asset('frontend/css/responsive.css')}}" rel="stylesheet">
-		<link href="{{asset('frontend/css/night-mode.css')}}" rel="stylesheet">
+		<link href="{{asset('assets/vendor/unicons-2.0.1/css/unicons.css')}}" rel="stylesheet">
+		<link href="{{asset('assets/css/style.css')}}" rel="stylesheet">
+		<link href="{{asset('assets/css/responsive.css')}}" rel="stylesheet">
+		<link href="{{asset('assets/css/night-mode.css')}}" rel="stylesheet">
 		
 		<!-- Vendor Stylesheets -->
-		<link href="{{asset('frontend/vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet">
-		<link href="{{asset('frontend/vendor/OwlCarousel/assets/owl.carousel.css')}}" rel="stylesheet">
-		<link href="{{asset('frontend/vendor/OwlCarousel/assets/owl.theme.default.min.css')}}" rel="stylesheet">
-		<link href="{{asset('frontend/vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
-		<link href="{{asset('frontend/vendor/bootstrap-select/dist/css/bootstrap-select.min.css')}}" rel="stylesheet">		
+		<link href="{{asset('assets/vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet">
+		<link href="{{asset('assets/vendor/OwlCarousel/assets/owl.carousel.css')}}" rel="stylesheet">
+		<link href="{{asset('assets/vendor/OwlCarousel/assets/owl.theme.default.min.css')}}" rel="stylesheet">
+		<link href="{{asset('assets/vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
+		<link href="{{asset('assets/vendor/bootstrap-select/dist/css/bootstrap-select.min.css')}}" rel="stylesheet">		
 		
 </head>
 
@@ -41,13 +41,13 @@
 
 @include('client_layout.footer')
 
-<script src="{{asset('frontend/js/jquery.min.js')}}"></script>
-<script src="{{asset('frontend/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
-<script src="{{asset('frontend/vendor/OwlCarousel/owl.carousel.js')}}"></script>
-<script src="{{asset('frontend/vendor/bootstrap-select/dist/js/bootstrap-select.min.js')}}"></script>	
-<script src="{{asset('frontend/vendor/mixitup/dist/mixitup.min.js')}}"></script>
-<script src="{{asset('frontend/js/custom.js')}}"></script>
-<script src="{{asset('frontend/js/night-mode.js')}}"></script>
+<script src="{{asset('assets/js/jquery.min.js')}}"></script>
+<script src="{{asset('assets/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+<script src="{{asset('assets/vendor/OwlCarousel/owl.carousel.js')}}"></script>
+<script src="{{asset('assets/vendor/bootstrap-select/dist/js/bootstrap-select.min.js')}}"></script>	
+<script src="{{asset('assets/vendor/mixitup/dist/mixitup.min.js')}}"></script>
+<script src="{{asset('assets/js/custom.js')}}"></script>
+<script src="{{asset('assets/js/night-mode.js')}}"></script>
 <script>	
     var containerEl = document.querySelector('[data-ref~="event-filter-content"]');
 

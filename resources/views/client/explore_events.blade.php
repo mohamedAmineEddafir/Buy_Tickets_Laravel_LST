@@ -91,7 +91,7 @@
 										<div class="main-card mt-4">
 											<div class="event-thumbnail">
 												<a href="venue_event_detail_view.html" class="thumbnail-img">
-													<img src="{{asset('frontend/images/event-imgs/img-1.jpg')}}" alt="">
+													<img src="{{asset('assets/images/event-imgs/img-1.jpg')}}" alt="">
 												</a>
 												<span class="bookmark-icon" title="Bookmark"></span>
 											</div>
@@ -118,7 +118,7 @@
 										<div class="main-card mt-4">
 											<div class="event-thumbnail">
 												<a href="online_event_detail_view.html" class="thumbnail-img">
-													<img src="{{asset('frontend/images/event-imgs/img-2.jpg')}}" alt="">
+													<img src="{{asset('assets/images/event-imgs/img-2.jpg')}}" alt="">
 												</a>
 												<span class="bookmark-icon" title="Bookmark"></span>
 											</div>
@@ -145,7 +145,7 @@
 										<div class="main-card mt-4">
 											<div class="event-thumbnail">
 												<a href="venue_event_detail_view.html" class="thumbnail-img">
-													<img src="{{asset('frontend/images/event-imgs/img-3.jpg')}}" alt="">
+													<img src="{{asset('assets/images/event-imgs/img-3.jpg')}}" alt="">
 												</a>
 												<span class="bookmark-icon" title="Bookmark"></span>
 											</div>
@@ -172,7 +172,7 @@
 										<div class="main-card mt-4">
 											<div class="event-thumbnail">
 												<a href="online_event_detail_view.html" class="thumbnail-img">
-													<img src="{{asset('frontend/images/event-imgs/img-4.jpg')}}" alt="">
+													<img src="{{asset('assets/images/event-imgs/img-4.jpg')}}" alt="">
 												</a>
 												<span class="bookmark-icon" title="Bookmark"></span>
 											</div>
@@ -199,7 +199,7 @@
 										<div class="main-card mt-4">
 											<div class="event-thumbnail">
 												<a href="venue_event_detail_view.html" class="thumbnail-img">
-													<img src="{{asset('frontend/images/event-imgs/img-5.jpg')}}" alt="">
+													<img src="{{asset('assets/images/event-imgs/img-5.jpg')}}" alt="">
 												</a>
 												<span class="bookmark-icon" title="Bookmark"></span>
 											</div>
@@ -226,7 +226,7 @@
 										<div class="main-card mt-4">
 											<div class="event-thumbnail">
 												<a href="venue_event_detail_view.html" class="thumbnail-img">
-													<img src="{{asset('frontend/images/event-imgs/img-6.jpg')}}" alt="">
+													<img src="{{asset('assets/images/event-imgs/img-6.jpg')}}" alt="">
 												</a>
 												<span class="bookmark-icon" title="Bookmark"></span>
 											</div>
@@ -253,7 +253,7 @@
 										<div class="main-card mt-4">
 											<div class="event-thumbnail">
 												<a href="online_event_detail_view.html" class="thumbnail-img">
-													<img src="{{asset('frontend/images/event-imgs/img-7.jpg')}}" alt="">
+													<img src="{{asset('assets/images/event-imgs/img-7.jpg')}}" alt="">
 												</a>
 												<span class="bookmark-icon" title="Bookmark"></span>
 											</div>
@@ -280,7 +280,7 @@
 										<div class="main-card mt-4">
 											<div class="event-thumbnail">
 												<a href="venue_event_detail_view.html" class="thumbnail-img">
-													<img src="{{asset('frontend/images/event-imgs/img-8.jpg')}}" alt="">
+													<img src="{{asset('assets/images/event-imgs/img-8.jpg')}}" alt="">
 												</a>
 												<span class="bookmark-icon" title="Bookmark"></span>
 											</div>
