@@ -78,7 +78,15 @@ Route::get('/dashbord', function () {
  });
 
 Route::get('/events', function () {
-     return view('admin.events');
+    return view('admin.events');
+});
+
+Route::get('/modify-Events', function () {
+    return view('admin.eventsUpdate');
+});
+
+Route::get('/demande', function () {
+     return view('admin.demande');
 });
 
 Route::get('/my_teams', function () {

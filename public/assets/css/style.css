@@ -5328,7 +5328,6 @@ input[type=number]::-webkit-inner-spin-button {
 }
 
 .contact-hero-banner {
-    min-height: 461px;
     background: url(../images/sign_bg.jpg);
     width: 100%;
     padding: 50px;
@@ -5345,7 +5344,6 @@ input[type=number]::-webkit-inner-spin-button {
 .contact-hero-banner-info p {
     font-size: 16px;
     color: #fff;
-    margin-bottom: 60px;
 }
 
 .contact-icon i {
