@@ -48,7 +48,7 @@
                                 <a class="nav-link " aria-current="page" href="/contact_us">Contact Us</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link " aria-current="page" href="/about_us">About Us</a>
+                                <a class="nav-link " aria-current="page" href="/about_us">About Us</a> 
                             </li>
 
                             @if(Session::get('email') !== null)

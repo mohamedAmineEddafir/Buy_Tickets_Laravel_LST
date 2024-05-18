@@ -632,7 +632,6 @@
 
                                                         </div>
                                                         <div class="ticket-type-item-list mt-4" style="display: none;">
-
                                                             <!-- Placeholder for ticket cards -->
                                                         </div>
                                                     </div>

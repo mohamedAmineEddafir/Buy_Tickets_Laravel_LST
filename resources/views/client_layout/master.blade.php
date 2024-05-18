@@ -116,6 +116,7 @@
         }
     }
 
+    
     // Apply styles on page load
     applyResponsiveStyles();
 
