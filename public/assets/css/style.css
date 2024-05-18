@@ -4366,7 +4366,7 @@ body {
 #add-event-tab .step-steps {
 	display: -webkit-box;
 	display: -ms-flexbox;
-	display: flex;
+	display: inline;
 	-ms-flex-wrap: wrap;
 	flex-wrap: wrap;
 	-webkit-box-pack: justify;

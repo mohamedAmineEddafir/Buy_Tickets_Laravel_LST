@@ -1,6 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\LogoutController;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -19,7 +24,7 @@ use Illuminate\Support\Facades\Route;
             
 Route::get('/', function () {
     return view('client.index');
-});
+})->name('client.index');
 
 Route::get('/explore_events', function () {
     return view('client.explore_events');
@@ -43,7 +48,7 @@ Route::get('/sign_up', function () {
 
 Route::get('/sign_in', function () {
      return view('client.sign_in');
-});
+})->name('login');
 
 Route::get('/forgot_password', function () {
     return view('client.forgot_password');
@@ -52,8 +57,19 @@ Route::get('/forgot_password', function () {
 Route::get('/about_us', function () {
     return view('client.about_us');
 });
+
+Route::get('/create_event', function () {
+    return view('client.create_event');
+});
+    
             
-            
+
+
+Route::post('/sign_up', [RegisterController::class, 'register'])->name('register');
+Route::post('/sign_in', [LoginController::class, 'login'])->name('login.submit');
+Route::post('/Logout', [LogoutController::class, 'logout'])->name('logout');
+
+
 /*----------------------------------------------------Admin--------------------------------------------*/
                 
             

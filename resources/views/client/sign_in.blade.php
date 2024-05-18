@@ -74,7 +74,7 @@
 										{{Session::get('error')}}
 									</div>
                                 @endif	
-								<form action="{{ url('accessaccount') }}" method="POST">
+								<form action="{{ route('login.submit') }}" method="POST">
 									@csrf
 									<h2 class="registration-title">Sign in to Barren</h2>
 									<div class="form-group mt-5">

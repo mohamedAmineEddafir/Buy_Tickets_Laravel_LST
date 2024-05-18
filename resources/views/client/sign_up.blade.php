@@ -61,19 +61,11 @@
 						<div class="col-xl-5 col-lg-6 col-md-7">
 							<div class="registration">
 								
-								<form action="{{ url('createaccount') }}" method="POST" enctype="multipart/form-data">
+								<form action="{{ route('register') }}" method="POST" enctype="multipart/form-data">
 								 @csrf
 									<h2 class="registration-title">Sign up to Barren</h2>
 									<div class="row mt-3">
-										<div class="col-lg-12 col-md-12">
-											<div class="form-group text-center mt-4">
-												<label class="form-label">Avatar*</label>
-												<span class="org_design_button btn-file">
-													<span><i class="fa-solid fa-camera"></i></span>
-													<input type="file" id="org_avatar" name="avatar" accept="image/*" required>
-												</span>																								
-											</div>
-										</div>
+										
 										<div class="col-lg-6 col-md-12">
 											<div class="form-group mt-4">
 												<label class="form-label">First Name*</label>
@@ -105,6 +97,17 @@
 												</div>
 												<div class="loc-group position-relative">
 													<input class="form-control h_50" name="password" type="password" placeholder="">
+													<span class="pass-show-eye"><i class="fas fa-eye-slash"></i></span>
+												</div>
+											</div>
+										</div>
+										<div class="col-lg-12 col-md-12">	
+											<div class="form-group mt-4">
+												<div class="field-password">
+													<label class="form-label">Confirmation Password*</label>
+												</div>
+												<div class="loc-group position-relative">
+													<input class="form-control h_50" name="password_confirmation" type="password" placeholder="">
 													<span class="pass-show-eye"><i class="fas fa-eye-slash"></i></span>
 												</div>
 											</div>
