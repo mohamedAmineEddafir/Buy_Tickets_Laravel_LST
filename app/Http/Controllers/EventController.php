@@ -1,10 +1,11 @@
 <?php
 namespace App\Http\Controllers;
 
+use App\Models\Event;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use App\Models\User;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\File;
 
 class EventController extends Controller
 {
@@ -67,5 +68,87 @@ class EventController extends Controller
         ]);
 
         return response()->json(['success' => true]);
+    }
+    public function EventGetData(int $id)
+    {
+        $event = Event::findOrFail($id);
+        //return $event;
+        return view('admin.eventsUpdate', compact('event'));
+    }
+    public function EventUpdateData(Request $request, int $id)
+    {
+        $image = $request->input('image');
+        $event_name = $request->input('title');
+        $ticketName = $request->input('ticketname');
+        $ticketPrice = $request->input('ticketprice');
+        $ticketTotal = $request->input('tickettotal');
+        $category = $request->input('category');
+        $eventDate = $request->input('eventdate');
+        $eventTime = $request->input('eventtime');
+        $duration = $request->input('duration');
+        $description = $request->input('description');
+        $venue = $request->input('venue');
+        $address = $request->input('address');
+        $country = $request->input('country');
+        $state = $request->input('state');
+        $city = $request->input('city');
+        $zipCode = $request->input('zipcode');
+
+        // Find the event by ID
+        $event = Event::findOrFail($id);
+
+        // Handle file upload
+        if ($request->hasFile('image')) {
+            $file = $request->file('image');
+            $extension = $file->getClientOriginalExtension();
+            $filename = time() . '.' . $extension;
+            $path = 'assets/images/Upload-imgs/Events/';
+            $file->move($path, $filename);
+
+            // Delete old image if exists
+            if (File::exists($path . $event->image)) {
+                File::delete($path . $event->image);
+            }
+
+            $image = $filename;
+        } else {
+            $image = $event->image;
+        }
+        
+
+        // Update the event with validated data
+        $event->update([
+            'image' => $image,
+            'title' =>  $event_name,
+            'ticket_name' =>  $ticketName,
+            'ticket_price' =>  $ticketPrice,
+            'ticket_total' =>  $ticketTotal,
+            'category' =>  $category,
+            'event_date' =>  $eventDate,
+            'event_time' =>  $eventTime,
+            'duration' =>  $duration,
+            'description' =>  $description,
+            'venue' =>  $venue,
+            'address' =>  $address,
+            'country' =>  $country,
+            'state' =>  $state,
+            'city' => $city,
+            'zipCode' => $zipCode,
+        ]);
+
+        // Redirect with a success message
+        return redirect()->route('events')->with('success', 'Updated Events successful!');
+    }
+    public function EventDestroyData(int $id)
+    {
+        $eventdel = Event::findOrFail($id);
+
+        if(File::exists($eventdel->image))
+        {
+            File::exists($eventdel->image);
+        }
+
+        $eventdel->delete();
+        return redirect()->route('events')->with('success', 'Events has been deleted!');
     }
 }
