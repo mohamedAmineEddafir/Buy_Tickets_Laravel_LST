@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\User;
-use Session;
+use Illuminate\Support\Facades\Session;
 
 class EventController extends Controller
 {
@@ -43,7 +43,7 @@ class EventController extends Controller
             }
         }
        
-        $id= Session::get('id');
+        $id = Session::get('id');
 
         // Insert event data into the database
         DB::table('events')->insert([

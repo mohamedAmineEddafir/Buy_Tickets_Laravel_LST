@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\User;
-use Session;
+use Illuminate\Support\Facades\Session;
 
 class LoginController extends Controller
 {
@@ -18,6 +18,7 @@ class LoginController extends Controller
 
         if ($user && password_verify($password, $user->password)) {
             Session::put('email', $email);
+
             Session::put('id', $user->id);
 
             return redirect()->route('client.index');
