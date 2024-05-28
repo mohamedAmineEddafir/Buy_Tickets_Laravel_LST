@@ -19,18 +19,27 @@
                         <div class="col-lg-12 col-md-12">
                             <div class="form-group mt-4">
                                 <label class="form-label">Ticket Name*</label>
-                                <input class="form-control h_40" type="text" placeholder="Event Ticket Name" value="">
+                                <input class="form-control h_40" type="text" id = "ticket_name" placeholder="Event Ticket Name" value="">
                             </div>
                             <div class="form-group mt-4">
                                 <label class="form-label">Ticket Price*</label>
-                                <input class="form-control h_40" type="number" min="0" max="10000" required=""
+                                <input class="form-control h_40" type="number" min="0"  id = "ticket_price" max="10000" required=""
                                     placeholder="Price" value="">
                             </div>
                             <div class="form-group mt-4">
                                 <label class="form-label">Total number of tickets available*</label>
-                                <input class="form-control h_40" id="ticketInput" type="number" min="0" max="200"
+                                <input class="form-control h_40" id="ticketInput" type="number" id = "ticket_number" min="0" max="200"
                                     placeholder="Enter Total Tickets">
                             </div>
+                           <!-- <div class="form-group border_bottom pt_30 pb_30">
+                                <label class="form-label fs-16">Choose a Type for your
+                                    ticket.*</label>
+                                <select class="selectpicker" data-selected-text-format="count > 4" data-size="5"
+                                    title="Select category" id="ticketType" data-live-search="true">
+                                    <option value="vip">VIP</option>
+                                    <option value="normal">Normal</option>
+                                </select>
+                            </div>-->
                         </div>
 
                     </div>
@@ -395,7 +404,7 @@
                                                                 <div class="default-event-thumb">
                                                                     <div class="default-event-thumb-btn">
                                                                         <div class="thumb-change-btn">
-                                                                            <input type="file" id="thumb-img">
+                                                                            <input type="file" id="thumb-img" accept="image/*">
                                                                             <label for="thumb-img">Change Image</label>
                                                                         </div>
                                                                     </div>
@@ -426,7 +435,8 @@
                                                                                 <label
                                                                                     class="form-label fs-6">Venue*</label>
                                                                                 <input class="form-control h_50"
-                                                                                    type="text" placeholder="" value="" id="eventVenue">
+                                                                                    type="text" placeholder="" value=""
+                                                                                    id="eventVenue">
                                                                             </div>
                                                                         </div>
                                                                         <div class="col-md-6">
@@ -434,7 +444,8 @@
                                                                                 <label class="form-label fs-6">Address
                                                                                     *</label>
                                                                                 <input class="form-control h_50"
-                                                                                    type="text" placeholder="" value="" id="eventAddress">
+                                                                                    type="text" placeholder="" value=""
+                                                                                    id="eventAddress">
                                                                             </div>
                                                                         </div>
 
@@ -560,8 +571,8 @@
                                                                                 <label class="form-label">State*</label>
                                                                                 <input class="form-control h_50"
                                                                                     type="text" placeholder=""
-                                                                                    value="Victoria"
-                                                                                    id="eventState">                                                                         </div>
+                                                                                    value="Victoria" id="eventState">
+                                                                            </div>
                                                                         </div>
                                                                         <div class="col-lg-6 col-md-12">
                                                                             <div class="form-group mt-1">
@@ -569,8 +580,7 @@
                                                                                     class="form-label">City/Suburb*</label>
                                                                                 <input class="form-control h_50"
                                                                                     type="text" placeholder=""
-                                                                                    value="Melbourne"
-                                                                                    id="eventCity">
+                                                                                    value="Melbourne" id="eventCity">
                                                                             </div>
                                                                         </div>
                                                                         <div class="col-lg-6 col-md-12">
@@ -579,8 +589,7 @@
                                                                                     Code*</label>
                                                                                 <input class="form-control h_50"
                                                                                     type="text" placeholder=""
-                                                                                    value="3000"
-                                                                                    id="eventZip">
+                                                                                    value="3000" id="eventZip">
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -647,7 +656,8 @@
                                 <button data-direction="prev"
                                     class="btn btn-default btn-hover steps_btn">Previous</button>
                                 <button data-direction="next" class="btn btn-default btn-hover steps_btn">Next</button>
-                                <button data-direction="finish"
+                                
+                                <button data-direction="finish"  
                                     class="btn btn-default btn-hover steps_btn">Create</button>
                             </div>
                         </div>
