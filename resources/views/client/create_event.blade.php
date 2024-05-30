@@ -31,15 +31,7 @@
                                 <input class="form-control h_40" id="ticketInput" type="number" id = "ticket_number" min="0" max="200"
                                     placeholder="Enter Total Tickets">
                             </div>
-                           <!-- <div class="form-group border_bottom pt_30 pb_30">
-                                <label class="form-label fs-16">Choose a Type for your
-                                    ticket.*</label>
-                                <select class="selectpicker" data-selected-text-format="count > 4" data-size="5"
-                                    title="Select category" id="ticketType" data-live-search="true">
-                                    <option value="vip">VIP</option>
-                                    <option value="normal">Normal</option>
-                                </select>
-                            </div>-->
+                         
                         </div>
 
                     </div>
@@ -117,30 +109,19 @@
                                                         <div class="form-group border_bottom pt_30 pb_30">
                                                             <label class="form-label fs-16">Choose a category for your
                                                                 event.*</label>
-                                                            <select class="selectpicker" multiple=""
+                                                            <select class="selectpicker"
                                                                 data-selected-text-format="count > 4" data-size="5"
                                                                 title="Select category" id="eventCategory"
                                                                 data-live-search="true">
-                                                                <option value="01">Arts</option>
-                                                                <option value="02">Business</option>
-                                                                <option value="03">Coaching and Consulting</option>
-                                                                <option value="04">Community and Culture</option>
-                                                                <option value="05">Entrepreneurship</option>
-                                                                <option value="06">Education and Training</option>
-                                                                <option value="07">Family and Friends</option>
-                                                                <option value="08">Fashion and Beauty</option>
-                                                                <option value="09">Film and Entertainment</option>
-                                                                <option value="10">Food and Drink</option>
-                                                                <option value="11">Government and Politics</option>
-                                                                <option value="12">Health and Wellbeing</option>
-                                                                <option value="13">Hobbies and Interest</option>
-                                                                <option value="14">Music and Theater</option>
-                                                                <option value="15">Religion and Spirituality</option>
-                                                                <option value="16">Science and Technology</option>
-                                                                <option value="17">Sports and Fitness</option>
-                                                                <option value="18">Travel and Outdoor</option>
-                                                                <option value="19">Visual Arts</option>
-                                                                <option value="20">Others</option>
+                                                                <option value="art">Arts</option>
+                                                                <option value="business">Business</option>
+                                                                <option value="concert">Concert</option>
+                                                                <option value="workshops">Workshops</option>
+                                                                <option value="coaching&consulting">Coaching and Consulting</option>
+                                                                <option value="health&wellbeing">Health and Wellbeing</option>
+                                                                <option value="volunteer">Volunteer</option>
+                                                                <option value="sports">Sports</option>
+                                                                
                                                             </select>
                                                         </div>
                                                         <div class="form-group border_bottom pt_30 pb_30">

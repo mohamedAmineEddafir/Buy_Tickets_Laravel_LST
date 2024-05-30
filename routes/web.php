@@ -32,9 +32,14 @@ Route::get('/', function () {
 })->name('client.index');
 
 Route::get('/explore_events', function () {
-    $events =DB::table('events')->get();
+    $events =DB::table('events')->paginate(12)->withQueryString();
     return view('client.explore_events', ['events' => $events]);
-});
+})->name('explore_events');
+
+Route::get('/explore_events/{Category}', function ($Category) {
+    $events =DB::table('events')->where(['category' => $Category])->paginate(12)->withQueryString();
+    return view('client.explore_events', ['events' => $events]);
+})->name('events.filter');
 
 Route::get('/online_event_detail_view', function () {
     return view('client.online_event_detail_view');
