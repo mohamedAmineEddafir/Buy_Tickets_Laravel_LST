@@ -53,7 +53,7 @@
 
                             @if(Session::get('email') !== null)
                             <li class="nav-item">
-                                <a class="nav-link " aria-current="page" href="#">Dashboard </a>
+                                <a class="nav-link " aria-current="page" href="{{ url('/dashbord')}}">Dashboard </a>
                             </li>
                             @endif
 
