@@ -205,7 +205,7 @@
                                         <div class="col-4">
                                             <div class="row">
                                                 <div class="col-md-5 order-md-1 imgh">
-                                                    <h5 style="padding: 0 15px 0 0;">New Image</h5>
+                                                    <h5 style="color:azure;">New Image</h5>
                                                     <svg id="svgPlaceholder"
                                                         class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto"
                                                         width="107" height="158" xmlns="http://www.w3.org/2000/svg"
