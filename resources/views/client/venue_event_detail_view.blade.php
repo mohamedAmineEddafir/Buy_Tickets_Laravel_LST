@@ -141,7 +141,7 @@
 								</div>
 							</div>
 							<div class="booking-btn">
-								<a href="checkout.html" class="main-btn btn-hover w-100">Book Now</a>
+								<a href="{{url('/achat')}}" class="main-btn btn-hover w-100">Book Now</a>
 							</div>
 						</div>
 					</div>

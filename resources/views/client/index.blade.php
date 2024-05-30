@@ -11,7 +11,7 @@
 						<div class="hero-banner-content">
 							<h2>The Easiest and Most Powerful Online Event Booking and Ticketing System</h2>
 							<p>Barren is an all-in-one event ticketing platform for event organisers, promoters, and managers. Easily create, promote and manage your events of any type and size.</p>
-							<a href="{{url('/contact_us')}}" class="main-btn btn-hover">Create Event <i class="fa-solid fa-arrow-right ms-3"></i></a>
+							<a href="{{url('/create_event')}}" class="main-btn btn-hover">Create Event <i class="fa-solid fa-arrow-right ms-3"></i></a>
 						</div>
 					</div>
 				</div>
