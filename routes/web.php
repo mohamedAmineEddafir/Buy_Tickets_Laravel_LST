@@ -76,10 +76,11 @@ Route::get('/create_event', function () {
     }
     return view('client.create_event');
 });
+Route::get('/achat', function () {
+    return view('client.achat');
+});
     
-            
-
-
+        
 Route::post('/sign_up', [RegisterController::class, 'register'])->name('register');
 
 Route::post('/sign_in', [LoginController::class, 'login'])->name('login.submit');
@@ -88,8 +89,8 @@ Route::post('/Logout', [LogoutController::class, 'logout'])->name('logout');
 
 Route::post('/create_event', [EventController::class, 'store'])->name('create_event');
 
-
-
+Route::post('/achat', [AchatController::class, 'achat'])->name('achat.achat');
+Route::get('/confirmeTicket', [AchatController::class, 'confirmeTicket'])->name('confirmeTicket');
 
 
 /*----------------------------------------------------Admin--------------------------------------------*/
