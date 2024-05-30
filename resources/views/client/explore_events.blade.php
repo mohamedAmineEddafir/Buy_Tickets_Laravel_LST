@@ -43,7 +43,7 @@
                                     <div class="main-card mt-4">
                                         <div class="event-thumbnail">
                                             <a href="venue_event_detail_view.html" class="thumbnail-img">
-                                                <img src="{{asset('images/' .  $event->image) }}" alt="">
+                                                <img src="{{asset('images/'. $event->image) }}" alt="">
                                             </a>
                                             <span class="bookmark-icon" title="Bookmark"></span>
                                         </div>
@@ -51,7 +51,7 @@
                                             <a href="venue_event_detail_view.html"
                                                 class="event-title">{{$event ->event_name }}</a>
                                             <div class="duration-price-remaining">
-                                                <span class="duration-price">{{$event -> price }} DHs</span>
+                                                <span class="duration-price">{{$event->price }} DHs</span>
                                                 <span class="remaining"></span>
                                             </div>
                                         </div>
@@ -61,10 +61,10 @@
                                                     <span><i
                                                             class="fa-solid fa-calendar-day me-2"></i>{{$event->date}}</span>
                                                     <span class="dot"><i class="fa-solid fa-circle"></i></span>
-                                                    <span>{{ $event -> time }}</span>
+                                                    <span>{{ $event->time }}</span>
                                                 </div>
                                                 <span class="publish-time"><i
-                                                        class="fa-solid fa-clock me-2"></i>{{ $event -> duration }}</span>
+                                                        class="fa-solid fa-clock me-2"></i>{{ $event ->duration }}</span>
                                             </div>
                                         </div>
                                     </div>

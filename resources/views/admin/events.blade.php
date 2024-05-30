@@ -36,7 +36,7 @@
                                             <div class="card-top event-top p-4 align-items-center top d-md-flex flex-wrap justify-content-between">
                                                 <div class="d-md-flex align-items-center event-top-info">
                                                     <div class="card-event-img">
-                                                        <img src="{{asset('assets/images/Upload-imgs/Events/' . $event->image)}}" alt="">
+                                                        <img src="{{asset('images/'. $event->image) }}" alt="">
                                                     </div>
                                                     <div class="card-event-dt">
                                                         <h5>{{ $event->event_name }}</h5>

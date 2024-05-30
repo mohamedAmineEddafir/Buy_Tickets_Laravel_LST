@@ -130,14 +130,8 @@
                                                                 <div class="col-md-6">
                                                                     <label class="form-label mt-3 fs-6">Event
                                                                         Date.*</label>
-                                                                    <div class="loc-group position-relative">
-                                                                        <input class="form-control h_50 datepicker-here"
-                                                                            data-language="en" id="eventDatePicker"
-                                                                            type="text" placeholder="MM/DD/YYYY"
-                                                                            value="">
-                                                                        <span class="absolute-icon"><i
-                                                                                class="fa-solid fa-calendar-days"></i></span>
-                                                                    </div>
+                                                                    <input type="date" class="form-control h_50" id="eventdate"
+                                                                        name="eventdate" required>
                                                                 </div>
 
                                                                 <div class="col-md-6">

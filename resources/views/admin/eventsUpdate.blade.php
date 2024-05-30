@@ -223,7 +223,7 @@
                                                 <div class="col-md-5 order-md-1 imgh">
                                                     <h5>Old Image</h5>
                                                     @if($event->image)
-                                                        <img class="card-img-top" id="imagePreview" src="{{asset('assets/images/Upload-imgs/Events/' . $event->image)}}"
+                                                        <img class="card-img-top" id="imagePreview" src="{{asset('images/'. $event->image) }}"
                                                             alt="Image Preview" style="border-radius:9px;" width="102" height="158">
                                                     @else
                                                     <section class="dots-container">

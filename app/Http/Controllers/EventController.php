@@ -35,8 +35,9 @@ class EventController extends Controller
         $imageName = null;
         if ($request->hasFile('image') && $request->file('image')->isValid()) {
             $image = $request->file('image');
-            $imageName = $image->getClientOriginalName();
-            $image->move(public_path('images'), $imageName);
+            $extension = $image->getClientOriginalExtension();
+            $filename = time() . '.' . $extension;
+            $image->move(public_path('images'), $filename);
         } else {
             if ($request->hasFile('image')) {
                 return redirect()->back()->withErrors(['image' => 'Invalid or missing image file'])->withInput();
@@ -63,7 +64,7 @@ class EventController extends Controller
             'total_ticket' => $validatedData['ticket']['total'],
             'price' => $validatedData['ticket']['price'],
             'user_id' => $id,
-            'image' => $imageName,
+            'image' => $filename,
         ]);
 
         return response()->json(['success' => true]);
@@ -101,12 +102,11 @@ class EventController extends Controller
             $file = $request->file('image');
             $extension = $file->getClientOriginalExtension();
             $filename = time() . '.' . $extension;
-            $path = 'assets/images/Upload-imgs/Events/';
-            $file->move($path, $filename);
+            $file->move(public_path('images'), $filename);;
 
             // Delete old image if exists
-            if (File::exists($path . $event->image)) {
-                File::delete($path . $event->image);
+            if (File::exists($file . $event->image)) {
+                File::delete($file . $event->image);
             }
 
             $image = $filename;
