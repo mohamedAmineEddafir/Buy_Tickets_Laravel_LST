@@ -29,7 +29,7 @@
                                         <div class="form-group mt-4">
                                             <label class="form-label">Title Event*</label>
                                             <input type="text" class="form-control h_50" id="title" name="title"
-                                                value="{{ $event->title }}" required>
+                                                value="{{ $event->event_name }}" required>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
@@ -43,14 +43,14 @@
                                         <div class="form-group mt-4">
                                             <label class="form-label">Ticket Price*</label>
                                             <input type="number" class="form-control h_50" id="ticketprice"
-                                                name="ticketprice" value="{{ $event->ticket_price }}" required>
+                                                name="ticketprice" value="{{ $event->price }}" required>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group mt-4">
                                             <label class="form-label">Total number of tickets available*</label>
                                             <input type="number" class="form-control h_50" id="tickettotal"
-                                                name="tickettotal" value="{{ $event->ticket_total }}" required>
+                                                name="tickettotal" value="{{ $event->total_ticket }}" required>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
@@ -82,7 +82,7 @@
                                                         <label class="form-label mt-3 fs-6">Event
                                                             Date.*</label>
                                                         <input type="date" class="form-control h_50" id="eventdate"
-                                                            name="eventdate" value="{{ $event->event_date }}" required>
+                                                            name="eventdate" value="{{ $event->date }}" required>
                                                     </div>
 
                                                     <div class="col-md-6">
@@ -90,7 +90,7 @@
                                                             <div class="col-md-6">
                                                                 <div class="clock-icon">
                                                                     <label class="form-label mt-3 fs-6">Time</label>
-                                                                    <input type="time" class="form-control h_50" id="eventtime" name="eventtime" value="{{ $event->event_time }}" required>
+                                                                    <input type="time" class="form-control h_50" id="eventtime" name="eventtime" value="{{ $event->time }}" required>
                                                                 </div>
                                                             </div>
 
@@ -178,7 +178,7 @@
                                                                 <div class="form-group mt-1">
                                                                     <label class="form-label">Zip/Post
                                                                         Code*</label>
-                                                                        <input type="text" class="form-control h_50" id="zipcode" name="zipcode" value="{{ $event->zip_code }}" required>
+                                                                        <input type="text" class="form-control h_50" id="zipcode" name="zipcode" value="{{ $event->zip }}" required>
                                                                 </div>
                                                             </div>
                                                         </div>

@@ -39,7 +39,7 @@
                                                         <img src="{{asset('assets/images/Upload-imgs/Events/' . $event->image)}}" alt="">
                                                     </div>
                                                     <div class="card-event-dt">
-                                                        <h5>{{ $event->title }}</h5>
+                                                        <h5>{{ $event->event_name }}</h5>
                                                     </div>
                                                 </div>
                                                 <div class="dropdown">
@@ -64,14 +64,14 @@
                                                         <i class="fa-solid fa-calendar-days"></i>
                                                     </span>
                                                     <p>Starts on</p>
-                                                    <h6 class="coupon-status">{{ $event->event_date }} {{ $event->event_time }}</h6>
+                                                    <h6 class="coupon-status">{{ $event->date }} {{ $event->time }}</h6>
                                                 </div>
                                                 <div class="icon-box">
                                                     <span class="icon">
                                                         <i class="fa-solid fa-ticket"></i>
                                                     </span>
                                                     <p>Ticket</p>
-                                                    <h6 class="coupon-status">{{ $event->ticket_total }}</h6>
+                                                    <h6 class="coupon-status">{{ $event->total_ticket }}</h6>
                                                 </div>
                                                 <div class="icon-box">
                                                     <span class="icon">
@@ -84,7 +84,7 @@
                                                           </svg>
                                                     </span>
                                                     <p>Ticket Price</p>
-                                                    <h6 class="coupon-status">{{ $event->ticket_price }} DHs</h6>
+                                                    <h6 class="coupon-status">{{ $event->price }} DHs</h6>
                                                 </div>
                                             </div>
                                         </div>
