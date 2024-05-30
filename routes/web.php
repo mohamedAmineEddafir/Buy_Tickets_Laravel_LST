@@ -66,28 +66,22 @@ Route::get('/about_us', function () {
 
 Route::get('/create_event', function () {
     if(Session::get('email') === null) {
-        return redirect()->route('login ');
+        return redirect()->route('login');
     }
-
     return view('client.create_event');
 });
-    
-            
-
 
 Route::post('/sign_up', [RegisterController::class, 'register'])->name('register');
+
 Route::post('/sign_in', [LoginController::class, 'login'])->name('login.submit');
+
 Route::post('/Logout', [LogoutController::class, 'logout'])->name('logout');
 
 Route::post('/create_event', [EventController::class, 'store'])->name('create_event');
 
 
-
-
-
 /*----------------------------------------------------Admin--------------------------------------------*/
-                
-            
+                   
 Route::get('/dashbord', function () {
     if(Session::get('email') === null) {
         return redirect()->route('login');
@@ -101,6 +95,7 @@ Route::get('/events', function () {
     }
     return view('admin.events');
 });
+
 /*+++++++++++++++++++++++++++++++++++++++++++++++++++/ Events Start /+++++++++++++++++++++++++++++++++++++++++++++++++*/
 
  // get data with url withOut controller

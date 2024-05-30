@@ -9,7 +9,7 @@
                         <i class="fa-solid fa-bars"></i>
                     </span>
                 </button>
-                <a class="navbar-brand order-1 order-lg-0 ml-lg-0 ml-2 me-auto" href="{{url('/')}}">
+                <a class="navbar-brand order-1 order-lg-0 ml-lg-0 ml-2 me-auto" href="{{ route('client.index')}}">
                     <div class="res-main-logo">
                         <img src="{{asset('assets/images/logo-icon.svg')}}" alt="">
                     </div>
@@ -39,7 +39,7 @@
                         </div>
                         <ul class="navbar-nav justify-content-end flex-grow-1 pe_5">
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="/">Home</a>
+                                <a class="nav-link active" aria-current="page" href="{{ url('/') }}">Home</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link " aria-current="page" href="/explore_events">Events</a>
