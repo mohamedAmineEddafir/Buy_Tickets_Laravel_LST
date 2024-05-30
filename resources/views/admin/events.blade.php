@@ -46,7 +46,10 @@
                                                     <button class="option-btn" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa-solid fa-ellipsis-vertical"></i></button>
                                                     <div class="dropdown-menu dropdown-menu-right">
                                                         <a href="{{url('/events/'.$event->id.'/modify-Events')}}" class="dropdown-item"><i class="fa-solid fa-gear me-3"></i>Modify Event</a>
-                                                        <a href="#" class="dropdown-item"><i class="fa-solid fa-eye me-3"></i>Preview Event</a>
+                                                        <a href="#" class="dropdown-item" data-event-id="{{ $event->id }}" onclick="showEventDetails(this)">
+                                                            <i class="fa-solid fa-eye me-3"></i>Preview Event
+                                                        </a>
+                                                        
                                                         <a href="{{url('/events/'.$event->id.'/delete-Events')}}" class="dropdown-item delete-event"><i class="fa-solid fa-trash-can me-3"></i> Delete Event</a>
                                                     </div>
                                                 </div>
@@ -99,4 +102,72 @@
             </div>
         </div>
     </div>
+    <script>
+        var eventsData = @json($events->keyBy('id'));
+    </script>    
+<!-- Modal -->
+<div class="modal fade" id="viewevent" tabindex="-1" aria-labelledby="vieweventLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="vieweventLabel">Event Details</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p><strong>Event Name:</strong> <span id="modalEventName"></span></p>
+          <p><strong>Category:</strong> <span id="modalCategory"></span></p>
+          <p><strong>Date:</strong> <span id="modalDate"></span></p>
+          <p><strong>Time:</strong> <span id="modalTime"></span></p>
+          <p><strong>Duration:</strong> <span id="modalDuration"></span></p>
+          <p><strong>Description:</strong> <span id="modalDescription"></span></p>
+          <p><strong>Venue:</strong> <span id="modalVenue"></span></p>
+          <p><strong>Address:</strong> <span id="modalAddress"></span></p>
+          <p><strong>Country:</strong> <span id="modalCountry"></span></p>
+          <p><strong>City:</strong> <span id="modalCity"></span></p>
+          <p><strong>State:</strong> <span id="modalState"></span></p>
+          <p><strong>ZIP:</strong> <span id="modalZip"></span></p>
+          <p><strong>Ticket Name:</strong> <span id="modalTicketName"></span></p>
+          <p><strong>Price:</strong> <span id="modalPrice"></span></p>
+          <p><strong>Total Tickets:</strong> <span id="modalTotalTickets"></span></p>
+          <p><h3 class="imgpop">Image:</h3> <span id="modalType"></span></p>
+          <img id="modalImage" src="" alt="Event Image" style="width: 100%; height: auto;">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-popup" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
 @endsection
+
+<script>
+    function showEventDetails(button) {
+      var eventId = button.getAttribute('data-event-id');
+      var event = eventsData[eventId];
+  
+      if (event) {
+        document.getElementById('modalEventName').textContent = event.event_name;
+        document.getElementById('modalCategory').textContent = event.category;
+        document.getElementById('modalDate').textContent = event.date;
+        document.getElementById('modalTime').textContent = event.time;
+        document.getElementById('modalDuration').textContent = event.duration;
+        document.getElementById('modalDescription').textContent = event.description;
+        document.getElementById('modalVenue').textContent = event.venue;
+        document.getElementById('modalAddress').textContent = event.address;
+        document.getElementById('modalCountry').textContent = event.country;
+        document.getElementById('modalCity').textContent = event.city;
+        document.getElementById('modalState').textContent = event.state;
+        document.getElementById('modalZip').textContent = event.zip;
+        document.getElementById('modalTicketName').textContent = event.ticket_name;
+        document.getElementById('modalPrice').textContent = event.price;
+        document.getElementById('modalTotalTickets').textContent = event.total_ticket;
+        document.getElementById('modalImage').src = '/images/' + event.image;
+  
+        // Afficher la modal
+        var viewEventModal = new bootstrap.Modal(document.getElementById('viewevent'));
+        viewEventModal.show();
+      }
+    }
+  </script>
+  

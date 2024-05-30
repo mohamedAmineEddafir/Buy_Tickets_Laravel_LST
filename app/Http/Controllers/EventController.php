@@ -2,6 +2,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Event;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
@@ -69,12 +70,38 @@ class EventController extends Controller
 
         return response()->json(['success' => true]);
     }
-    public function EventGetData(int $id)
+/*    public function EventGetData($id)
+    {
+        try {
+            // Récupérer l'utilisateur avec les événements associés
+            $user = User::with('events')->findOrFail($id);
+
+            // Afficher les données récupérées pour le débogage
+            dd($user->toArray());
+
+            // Passer les données de l'utilisateur et ses événements à la vue
+            return view('events.modify', compact('user'));
+        } catch (\Exception $e) {
+            // Affichez une erreur si l'utilisateur n'est pas trouvé
+            return response()->json(['error' => 'User not found or no events found'], 404);
+        }
+    }
+       public function EventGetData(int $id)
     {
         $event = Event::findOrFail($id);
         //return $event;
         return view('admin.eventsUpdate', compact('event'));
     }
+*/
+   public function EventGetData(int $id)
+    {
+        // Récupérer l'événement avec les informations de l'utilisateur associé
+        $event = Event::with('user')->findOrFail($id);
+
+        // Passer les données de l'événement et de l'utilisateur à la vue
+        return view('admin.eventsUpdate', compact('event'));
+    }
+
     public function EventUpdateData(Request $request, int $id)
     {
         $image = $request->input('image');

@@ -6597,3 +6597,15 @@ input[type=number]::-webkit-inner-spin-button {
 .form-control{
     line-height: 3.5 !important;
 }
+
+strong{
+    color: rgb(106, 192, 69);
+    margin-left: 8%;
+}
+.imgpop{
+    color: rgb(106, 192, 69);
+}
+.btn-popup{
+    background-color: rgb(106, 192, 69) !important;
+    color: white;
+}

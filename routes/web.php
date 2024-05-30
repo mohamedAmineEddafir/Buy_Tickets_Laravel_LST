@@ -102,13 +102,6 @@ Route::get('/dashbord', function () {
     return view('admin.dashbord');
  });
 
-Route::get('/events', function () {
-    if(Session::get('email') === null) {
-        return redirect()->route('login');
-    }
-    return view('admin.events');
-});
-
 /*+++++++++++++++++++++++++++++++++++++++++++++++++++/ Events Start /+++++++++++++++++++++++++++++++++++++++++++++++++*/
 
  // get data with url withOut controller
