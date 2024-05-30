@@ -130,8 +130,7 @@
                                                                 <div class="col-md-6">
                                                                     <label class="form-label mt-3 fs-6">Event
                                                                         Date.*</label>
-                                                                    <input type="date" class="form-control h_50" id="eventdate"
-                                                                        name="eventdate" required>
+                                                                    <input type="date" class="form-control h_50" id="eventDatePicker" required>
                                                                 </div>
 
                                                                 <div class="col-md-6">
