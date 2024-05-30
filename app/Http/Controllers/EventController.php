@@ -11,8 +11,7 @@ class EventController extends Controller
 {
     public function store(Request $request)
     {
-
-                // Validate the request data
+        // Validate the request data
         $validatedData = $request->validate([
             'eventName' => 'required|string|max:255',
             'eventDate' => 'required|date',
@@ -79,12 +78,12 @@ class EventController extends Controller
     {
         $image = $request->input('image');
         $event_name = $request->input('title');
-        $ticketName = $request->input('ticketname');
-        $ticketPrice = $request->input('ticketprice');
-        $ticketTotal = $request->input('tickettotal');
+        $ticket_name = $request->input('ticketname');
+        $price = $request->input('ticketprice');
+        $total_ticket = $request->input('tickettotal');
         $category = $request->input('category');
-        $eventDate = $request->input('eventdate');
-        $eventTime = $request->input('eventtime');
+        $date = $request->input('eventdate');
+        $time = $request->input('eventtime');
         $duration = $request->input('duration');
         $description = $request->input('description');
         $venue = $request->input('venue');
@@ -119,13 +118,13 @@ class EventController extends Controller
         // Update the event with validated data
         $event->update([
             'image' => $image,
-            'title' =>  $event_name,
-            'ticket_name' =>  $ticketName,
-            'ticket_price' =>  $ticketPrice,
-            'ticket_total' =>  $ticketTotal,
+            'event_name' =>  $event_name,
+            'ticket_name' =>  $ticket_name,
+            'price' =>  $price,
+            'total_ticket' =>  $total_ticket,
             'category' =>  $category,
-            'event_date' =>  $eventDate,
-            'event_time' =>  $eventTime,
+            'date' =>  $date,
+            'time' =>  $time,
             'duration' =>  $duration,
             'description' =>  $description,
             'venue' =>  $venue,

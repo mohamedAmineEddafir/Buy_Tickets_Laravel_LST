@@ -33,9 +33,14 @@ Route::get('/', function () {
 })->name('client.index');
 
 Route::get('/explore_events', function () {
-    $events =DB::table('events')->get();
+    $events =DB::table('events')->paginate(12)->withQueryString();
     return view('client.explore_events', ['events' => $events]);
-});
+})->name('explore_events');
+
+Route::get('/explore_events/{Category}', function ($Category) {
+    $events =DB::table('events')->where(['category' => $Category])->paginate(12)->withQueryString();
+    return view('client.explore_events', ['events' => $events]);
+})->name('events.filter');
 
 Route::get('/online_event_detail_view', function () {
     return view('client.online_event_detail_view');
@@ -71,29 +76,24 @@ Route::get('/create_event', function () {
     }
     return view('client.create_event');
 });
-Route::get('/achat', function () {
-    return view('client.achat');
-});
     
             
 
 
 Route::post('/sign_up', [RegisterController::class, 'register'])->name('register');
+
 Route::post('/sign_in', [LoginController::class, 'login'])->name('login.submit');
+
 Route::post('/Logout', [LogoutController::class, 'logout'])->name('logout');
 
 Route::post('/create_event', [EventController::class, 'store'])->name('create_event');
-
-Route::post('/achat', [AchatController::class, 'achat'])->name('achat.achat');
-Route::get('/confirmeTicket', [AchatController::class, 'confirmeTicket'])->name('confirmeTicket');
 
 
 
 
 
 /*----------------------------------------------------Admin--------------------------------------------*/
-                
-            
+                   
 Route::get('/dashbord', function () {
     if(Session::get('email') === null) {
         return redirect()->route('login');
@@ -107,6 +107,7 @@ Route::get('/events', function () {
     }
     return view('admin.events');
 });
+
 /*+++++++++++++++++++++++++++++++++++++++++++++++++++/ Events Start /+++++++++++++++++++++++++++++++++++++++++++++++++*/
 
  // get data with url withOut controller
