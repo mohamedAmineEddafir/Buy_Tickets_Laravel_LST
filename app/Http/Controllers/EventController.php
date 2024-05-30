@@ -70,29 +70,7 @@ class EventController extends Controller
 
         return response()->json(['success' => true]);
     }
-/*    public function EventGetData($id)
-    {
-        try {
-            // Récupérer l'utilisateur avec les événements associés
-            $user = User::with('events')->findOrFail($id);
 
-            // Afficher les données récupérées pour le débogage
-            dd($user->toArray());
-
-            // Passer les données de l'utilisateur et ses événements à la vue
-            return view('events.modify', compact('user'));
-        } catch (\Exception $e) {
-            // Affichez une erreur si l'utilisateur n'est pas trouvé
-            return response()->json(['error' => 'User not found or no events found'], 404);
-        }
-    }
-       public function EventGetData(int $id)
-    {
-        $event = Event::findOrFail($id);
-        //return $event;
-        return view('admin.eventsUpdate', compact('event'));
-    }
-*/
    public function EventGetData(int $id)
     {
         // Récupérer l'événement avec les informations de l'utilisateur associé

@@ -237,7 +237,7 @@
                                             </div>
                                         </div>
                                         <div class="col-8">
-                                            <h3>Organized by: <span style="color: rgb(228, 244, 255)">{{ $event->user->firstName }} {{ $event->user->lastName }}</span></h3>
+                                            <h3>Organized by: <span style="color: rgb(255, 228, 255)">{{ $event->user->firstName }} {{ $event->user->lastName }}</span></h3>
                                             <p>Please double-check all of your modifications ✅</p>
                                         </div>
                                     </div>

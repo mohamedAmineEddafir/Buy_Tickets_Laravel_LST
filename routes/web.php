@@ -104,22 +104,33 @@ Route::get('/dashbord', function () {
 
 /*+++++++++++++++++++++++++++++++++++++++++++++++++++/ Events Start /+++++++++++++++++++++++++++++++++++++++++++++++++*/
 
- // get data with url withOut controller
- Route::get('/events', function (Request $request) {
-        $search = $request->input('search');
+Route::get('/events', function (Request $request) {
+    $search = $request->input('search');
 
-        // Si un terme de recherche est présent filtrer les résultats
-        if ($search) {
-            $events = DB::table('events')
-                ->where('title', 'LIKE', '%' . $search . '%')
-                ->get();
-        } else {
-            // Sinon, récupérer tous les événements
-            $events = DB::table('events')->get();
-        }
+    // Construire la requête de base avec jointure
+    $query = DB::table('events')
+        ->join('users', 'events.user_id', '=', 'users.id')
+        ->select(
+            'events.*',
+            'users.firstName as user_firstName',
+            'users.lastName as user_lastName',
+            'users.email as user_email'
+        );
+
+    // Si un terme de recherche est présent, filtrer les résultats
+    if ($search) {
+        $query->where('events.title', 'LIKE', '%' . $search . '%');
+    }
+
+    // Exécuter la requête et obtenir les résultats
+    $events = $query->get();
     $eventCount = $events->count(); // Compter le nombre d'événements
 
-    return view('admin.events', ['events' => $events, 'eventCount' => $eventCount, 'search' => $search]);
+    return view('admin.events', [
+        'events' => $events,
+        'eventCount' => $eventCount,
+        'search' => $search
+    ]);
 })->name('events');
 
 Route::get('events/{id}/modify-Events', [EventController::class, 'EventGetData'])->name('events.modify');
