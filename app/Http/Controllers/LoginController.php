@@ -18,8 +18,8 @@ class LoginController extends Controller
 
         if ($user && password_verify($password, $user->password)) {
             Session::put('email', $email);
-
             Session::put('id', $user->id);
+            Session::put('role', $user->role);
 
             return redirect()->route('client.index');
         } else {

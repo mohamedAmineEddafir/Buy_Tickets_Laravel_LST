@@ -104,7 +104,7 @@ Route::get('/dashbord', function () {
 
 /*+++++++++++++++++++++++++++++++++++++++++++++++++++/ Events Start /+++++++++++++++++++++++++++++++++++++++++++++++++*/
 
-Route::get('/events', function (Request $request) {
+ Route::get('/events', function (Request $request) {
     $search = $request->input('search');
 
     // Construire la requête de base avec jointure
@@ -126,11 +126,7 @@ Route::get('/events', function (Request $request) {
     $events = $query->get();
     $eventCount = $events->count(); // Compter le nombre d'événements
 
-    return view('admin.events', [
-        'events' => $events,
-        'eventCount' => $eventCount,
-        'search' => $search
-    ]);
+    return view('admin.events', ['events' => $events, 'eventCount' => $eventCount, 'search' => $search]);
 })->name('events');
 
 Route::get('events/{id}/modify-Events', [EventController::class, 'EventGetData'])->name('events.modify');

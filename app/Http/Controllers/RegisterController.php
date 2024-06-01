@@ -26,6 +26,7 @@ class RegisterController  extends Controller{
             'phone' =>  $phone,
             'email' => $email,
             'password' => bcrypt($password),
+            'role' => 'user',
         ]);
         return redirect()->route('login')->with('success', 'Registration successful! Please log in.');
     }
