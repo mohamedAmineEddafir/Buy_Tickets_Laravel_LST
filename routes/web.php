@@ -8,7 +8,9 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\AchatController;
+use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Log;
 
 
 
@@ -94,13 +96,17 @@ Route::get('/confirmeTicket', [AchatController::class, 'confirmeTicket'])->name(
 
 
 /*----------------------------------------------------Admin--------------------------------------------*/
-                   
+
+/*                 
 Route::get('/dashbord', function () {
     if(Session::get('email') === null) {
         return redirect()->route('login');
     }
     return view('admin.dashbord');
- });
+});
+*/
+
+Route::get('/dashbord', [DashboardController::class, 'show'])->name('dashbord');
 
 /*+++++++++++++++++++++++++++++++++++++++++++++++++++/ Events Start /+++++++++++++++++++++++++++++++++++++++++++++++++*/
 
