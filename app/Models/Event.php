@@ -27,7 +27,7 @@ class Event extends Model
         'ticket_name',
         'price',
         'total_ticket',
-        'type',
+        'Status',
         'user_id',
     ];
 
