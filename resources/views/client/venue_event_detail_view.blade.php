@@ -36,8 +36,8 @@
                             <h3 class="event-main-title">{{ $event->event_name }}</h3>
                             <div class="event-top-info-status">
                                 <span class="event-type-name"><i class="fa-solid fa-location-dot"></i>{{ $event->venue }}</span>
-                                <span class="event-type-name details-hr"><strong> Starts on : </strong><span class="ev-event-date">{{ $event->date }} ,<strong> Date : </strong> {{ $event->time }} AM</span></span>
-                                <span class="event-type-name details-hr">{{ $event->duration }}</span>
+                                <span class="event-type-name details-hr"> <b>Starts on : </b> <span class="ev-event-date">{{ $event->date }} , <b>Date : </b>  {{ $event->time }} AM</span></span>
+                                <span class="event-type-name details-hr">{{ $event->duration }} <b>h</b></span>
                             </div>
                         </div>
                     </div>
@@ -101,7 +101,7 @@
                             </div>
                             <div class="event-dt-right-content">
                                 <h4>Date and Time</h4>
-                                <h5><strong> Date : </strong>{{ $event->date }} ,<strong> Time : </strong> {{ $event->time }} AM</h5>
+                                <h5> Date : {{ $event->date }} , Time : {{ $event->time }} AM</h5>
                                 <div class="add-to-calendar">
                                     <a href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                         <i class="fa-regular fa-calendar-days me-3"></i>Add to Calendar

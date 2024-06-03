@@ -42,13 +42,13 @@
                                     data-ref="mixitup-target">
                                     <div class="main-card mt-4">
                                         <div class="event-thumbnail">
-                                            <a href="venue_event_detail_view.html" class="thumbnail-img">
+                                            <a href="{{ route('venue_event_detail_view.show', ['id'=>$event->id])}}" class="thumbnail-img">
                                                 <img src="{{asset('images/'. $event->image) }}" alt="">
                                             </a>
                                             <span class="bookmark-icon" title="Bookmark"></span>
                                         </div>
                                         <div class="event-content">
-                                            <a href="venue_event_detail_view.html"
+                                            <a href="{{ route('venue_event_detail_view.show', ['id'=>$event->id])}}"
                                                 class="event-title">{{$event ->event_name }}</a>
                                             <div class="duration-price-remaining">
                                                 <span class="duration-price">{{$event->price }} DHs</span>

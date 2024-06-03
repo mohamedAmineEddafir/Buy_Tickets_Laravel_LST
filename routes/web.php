@@ -95,7 +95,7 @@ Route::post('/achat', [AchatController::class, 'achat'])->name('achat.achat');
 
 Route::get('/confirmeTicket', [AchatController::class, 'confirmeTicket'])->name('confirmeTicket');
 
-Route::get('/venue_event_detail_view/{id}', [EventController::class, 'show'])->name('venue_event_detail_view.show');
+Route::get('/venue_event_detail_view/{id}', [EventController::class, 'showEvente'])->name('venue_event_detail_view.show');
 
 
 /*----------------------------------------------------Admin--------------------------------------------*/   

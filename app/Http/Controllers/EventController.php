@@ -160,20 +160,19 @@ class EventController extends Controller
         $eventdel->delete();
         return redirect()->route('events')->with('success', 'Events has been deleted!');
     }
-<<<<<<< HEAD
+
 
 
     //Show Details Events
-    public function show($id)
+    public function showEvente($id)
     {
       $event = Event::find($id);
       $event = Event::join('users', 'events.user_id', '=', 'users.id')
                         ->select('events.*', 'users.firstName', 'users.lastName')
                         ->find($id);
       return view('client.venue_event_detail_view', ['event' => $event]);
+    }
 
-
-=======
     public function updateStatusEvents(int $id)
     {
         $events = Event::find($id);
@@ -187,6 +186,6 @@ class EventController extends Controller
             $events->save();
         }
         return back();
->>>>>>> c5fc8105c5e0c6d2cb45ca5e11da80432bf79499
+
     }
 }
