@@ -162,7 +162,6 @@ class EventController extends Controller
     }
 
 
-
     //Show Details Events
     public function showEvente($id)
     {
@@ -173,6 +172,8 @@ class EventController extends Controller
       return view('client.venue_event_detail_view', ['event' => $event]);
     }
 
+
+    
     public function updateStatusEvents(int $id)
     {
         $events = Event::find($id);
