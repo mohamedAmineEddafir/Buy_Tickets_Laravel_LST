@@ -17,7 +17,7 @@ class DashboardController extends Controller
         if(Session::get('role') === 'admin') {
             return view('admin.dashbord');
         } else {
-            return view('client.index');
+            return redirect()->route('client.index');
         }
 
     }
