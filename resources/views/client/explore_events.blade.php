@@ -38,37 +38,39 @@
                             </div>
                             <div class="row" data-ref="event-filter-content">
                                 @foreach ($events as $event)
-                                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 mix arts concert workshops volunteer sports health_Wellness"
-                                    data-ref="mixitup-target">
-                                    <div class="main-card mt-4">
-                                        <div class="event-thumbnail">
-                                            <a href="{{ route('venue_event_detail_view.show', ['id'=>$event->id])}}" class="thumbnail-img">
-                                                <img src="{{asset('images/'. $event->image) }}" alt="">
-                                            </a>
-                                            <span class="bookmark-icon" title="Bookmark"></span>
-                                        </div>
-                                        <div class="event-content">
-                                            <a href="{{ route('venue_event_detail_view.show', ['id'=>$event->id])}}"
-                                                class="event-title">{{$event ->event_name }}</a>
-                                            <div class="duration-price-remaining">
-                                                <span class="duration-price">{{$event->price }} DHs</span>
-                                                <span class="remaining"></span>
-                                            </div>
-                                        </div>
-                                        <div class="event-footer">
-                                            <div class="event-timing">
-                                                <div class="publish-date">
-                                                    <span><i
-                                                            class="fa-solid fa-calendar-day me-2"></i>{{$event->date}}</span>
-                                                    <span class="dot"><i class="fa-solid fa-circle"></i></span>
-                                                    <span>{{ $event->time }}</span>
+                                    @if( $event->Status == 1)
+                                        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 mix arts concert workshops volunteer sports health_Wellness"
+                                            data-ref="mixitup-target">
+                                            <div class="main-card mt-4">
+                                                <div class="event-thumbnail">
+                                                    <a href="{{ route('venue_event_detail_view.show', ['id'=>$event->id])}}" class="thumbnail-img">
+                                                        <img src="{{asset('images/'. $event->image) }}" alt="">
+                                                    </a>
+                                                    <span class="bookmark-icon" title="Bookmark"></span>
                                                 </div>
-                                                <span class="publish-time"><i
-                                                        class="fa-solid fa-clock me-2"></i>{{ $event ->duration }}</span>
+                                                <div class="event-content">
+                                                    <a href="{{ route('venue_event_detail_view.show', ['id'=>$event->id])}}"
+                                                        class="event-title">{{$event ->event_name }}</a>
+                                                    <div class="duration-price-remaining">
+                                                        <span class="duration-price">{{$event->price }} DHs</span>
+                                                        <span class="remaining"></span>
+                                                    </div>
+                                                </div>
+                                                <div class="event-footer">
+                                                    <div class="event-timing">
+                                                        <div class="publish-date">
+                                                            <span><i
+                                                                    class="fa-solid fa-calendar-day me-2"></i>{{$event->date}}</span>
+                                                            <span class="dot"><i class="fa-solid fa-circle"></i></span>
+                                                            <span>{{ $event->time }}</span>
+                                                        </div>
+                                                        <span class="publish-time"><i
+                                                                class="fa-solid fa-clock me-2"></i>{{ $event ->duration }}</span>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </div>
+                                    @endif
                                 @endforeach
 
                                 </div>
