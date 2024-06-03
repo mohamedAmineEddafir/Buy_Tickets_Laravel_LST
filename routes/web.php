@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Event;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
@@ -10,7 +11,6 @@ use App\Http\Controllers\EventController;
 use App\Http\Controllers\AchatController;
 use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Session;
-use Illuminate\Support\Facades\Log;
 
 
 
@@ -92,14 +92,17 @@ Route::post('/Logout', [LogoutController::class, 'logout'])->name('logout');
 Route::post('/create_event', [EventController::class, 'store'])->name('create_event');
 
 Route::post('/achat', [AchatController::class, 'achat'])->name('achat.achat');
+
 Route::get('/confirmeTicket', [AchatController::class, 'confirmeTicket'])->name('confirmeTicket');
 
 Route::get('/venue_event_detail_view/{id}', [EventController::class, 'show'])->name('venue_event_detail_view.show');
 
 
-/*----------------------------------------------------Admin--------------------------------------------*/
+/*----------------------------------------------------Admin--------------------------------------------*/   
 
-/*                 
+/*
+    & Basic Route to return dashboard 
+
 Route::get('/dashbord', function () {
     if(Session::get('email') === null) {
         return redirect()->route('login');
@@ -137,6 +140,7 @@ Route::get('/dashbord', [DashboardController::class, 'show'])->name('dashbord');
     return view('admin.events', ['events' => $events, 'eventCount' => $eventCount, 'search' => $search]);
 })->name('events');
 
+Route::get('events/{id}', [EventController::class, 'updateStatusEvents']) ->name('events.status');
 Route::get('events/{id}/modify-Events', [EventController::class, 'EventGetData'])->name('events.modify');
 Route::put('events/{id}/modify-Events', [EventController::class, 'EventUpdateData'])->name('events.update');
 Route::get('events/{id}/delete-Events', [EventController::class, 'EventDestroyData'])->name('events.destroy');

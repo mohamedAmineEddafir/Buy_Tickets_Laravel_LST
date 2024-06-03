@@ -104,6 +104,11 @@
                                                     <h6 class="coupon-status">{{ $event->price }} DHs</h6>
                                                 </div>
                                             </div>
+                                            <div class="btncostum">
+                                                <a href="{{url('events/'.$event->id)}}" class="btn btn-{{ $event->Status ? 'success' : 'danger' }} btAct">
+                                                    {{ $event->Status ? 'Is Work' : 'Is Stop' }}
+                                                </a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
