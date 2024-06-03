@@ -31,9 +31,9 @@ use Illuminate\Support\Facades\Log;
 
             
 Route::get('/', function () {
-    return view('client.index');
+    $events =DB::table('events')->paginate(12)->withQueryString();
+    return view('client.index', ['events' => $events]);
 })->name('client.index');
-
 Route::get('/explore_events', function () {
     $events =DB::table('events')->paginate(12)->withQueryString();
     return view('client.explore_events', ['events' => $events]);
@@ -93,6 +93,8 @@ Route::post('/create_event', [EventController::class, 'store'])->name('create_ev
 
 Route::post('/achat', [AchatController::class, 'achat'])->name('achat.achat');
 Route::get('/confirmeTicket', [AchatController::class, 'confirmeTicket'])->name('confirmeTicket');
+
+Route::get('/venue_event_detail_view/{id}', [EventController::class, 'show'])->name('venue_event_detail_view.show');
 
 
 /*----------------------------------------------------Admin--------------------------------------------*/
