@@ -160,8 +160,6 @@ class EventController extends Controller
         $eventdel->delete();
         return redirect()->route('events')->with('success', 'Events has been deleted!');
     }
-<<<<<<< HEAD
-
 
     //Show Details Events
     public function show($id)
@@ -172,8 +170,8 @@ class EventController extends Controller
                         ->find($id);
       return view('client.venue_event_detail_view', ['event' => $event]);
 
+    }
 
-=======
     public function updateStatusEvents(int $id)
     {
         $events = Event::find($id);
@@ -187,6 +185,6 @@ class EventController extends Controller
             $events->save();
         }
         return back();
->>>>>>> c5fc8105c5e0c6d2cb45ca5e11da80432bf79499
+
     }
 }
