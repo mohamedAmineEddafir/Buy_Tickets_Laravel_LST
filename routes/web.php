@@ -13,7 +13,10 @@ use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Session;
 use App\Http\Controllers\Auth\LoginnController;
 use Illuminate\Support\Facades\Auth;
+<<<<<<< HEAD
 
+=======
+>>>>>>> ad6d546b83ce4ac6f68244fd844c29e724a9a775
 
 
 
