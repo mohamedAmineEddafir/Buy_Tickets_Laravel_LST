@@ -46,4 +46,14 @@ class AchatController extends Controller
                         ->find($id);
       return view('client.confirmeTicket', ['event' => $event]);
     }
+
+    public function showpticktfinale($id)
+    {
+      $event = Event::find($id);
+      $event = Event::join('users', 'events.user_id', '=', 'users.id')
+                        ->select('events.*', 'users.firstName', 'users.lastName')
+                        ->find($id);
+      return view('client.tickt_finale', ['event' => $event]);
+    }
+    
 }

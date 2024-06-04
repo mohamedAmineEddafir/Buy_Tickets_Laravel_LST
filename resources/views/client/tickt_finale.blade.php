@@ -63,19 +63,19 @@
 								<div class="col-md-6">
 									<div class="vhls140">
 										<ul>
-											<li><div class="vdt-list">Invoice to John Doe</div></li>
-											<li><div class="vdt-list">140 St Kilda Rd</div></li>
-											<li><div class="vdt-list">Melbourne, Victoria</div></li>
-											<li><div class="vdt-list">3000, Australia</div></li>
+											<li><div class="vdt-list">Invoice to <b>{{ $event->firstName }} {{ $event->lastName }}</b> </div></li>
+											{{-- <li><div class="vdt-list">140 St Kilda Rd</div></li> --}}
+											<li><div class="vdt-list"> Date : <b>{{ $event->date }}</b> </div></li>
+											<li><div class="vdt-list">Localisation : <b>{{ $event->venue }}</b></div></li>
 										</ul>
 									</div>
 								</div>
 								<div class="col-md-6">
 									<div class="vhls140">
 										<ul>
-											<li><div class="vdt-list">Invoice ID : YCCURW-000000</div></li>
-											<li><div class="vdt-list">Order Date : 10/05/2022</div></li>
-											<li><div class="vdt-list">Near MBD Mall,</div></li>
+											{{-- <li><div class="vdt-list">Invoice ID : YCCURW-000000</div></li> --}}
+											{{-- <li><div class="vdt-list">Order Date : 10/05/2022</div></li>
+											<li><div class="vdt-list">Near MBD Mall,</div></li> --}}
 										</ul>
 									</div>
 								</div>
@@ -88,7 +88,7 @@
 										<tr>
 											<th scope="col">#</th>
 											<th scope="col">Event Details</th>
-											<th scope="col">Type</th>
+											<th scope="col">Localisation</th>
 											<th scope="col">Qty</th>
 											<th scope="col">Unit Price</th>
 											<th scope="col">Total</th>
@@ -96,18 +96,18 @@
 									</thead>
 									<tbody>
 										<tr>										
-											<td>1</td>	
-											<td><a href="#" target="_blank">Tutorial on Canvas Painting for Beginners</a></td>	
-											<td>Online</td>	
+											<td>{{ $event->id }}</td>
+											<td><a href="#" target="_blank">{{ $event->event_name }}</a></td>	
+											<td>{{ $event->venue }}</td>	
 											<td>1</td>
-											<td>$75.00</td>
-											<td>$75.00</td>
+											<td>{{ $event->price }}  Dhs</td>
+											<td>{{ $event->price }}  Dhs</td>
 										</tr>
 										<tr>
 											<td colspan="1"></td>
 											<td colspan="5">
 												<div class="user_dt_trans text-end pe-xl-4">
-													<div class="totalinv2">Invoice Total : USD $36.00</div>
+													<div class="totalinv2">Invoice Total : {{ $event->price }}  Dhs</div>
 													<p>Paid via Paypal</p>
 												</div>
 											</td>
@@ -125,18 +125,18 @@
 									<div class="col-lg-7">
 										<div class="event-order-dt p-4">
 											<div class="event-thumbnail-img">
-												<img src="/assets/images/event-imgs/img-7.jpg" alt="">
+												<img src="{{asset('images/'. $event->image) }}" alt="">
 											</div>
 											<div class="event-order-dt-content">
-												<h5>Tutorial on Canvas Painting for Beginners</h5>
-												<span>Wed, Jun 01, 2022 5:30 AM. Duration 1h</span>
+												<h5>{{ $event->event_name }}</h5>
+												<span>{{ $event->venue }}, {{ $event->date }},  {{ $event->time }} AM. Duration 1h</span>
 												<div class="buyer-name">John Doe</div>
 												<div class="booking-total-tickets">
 													<i class="fa-solid fa-ticket rotate-icon"></i>
 													<span class="booking-count-tickets mx-2">1</span>x Ticket
 												</div>
 												<div class="booking-total-grand">
-													Total : <span>$75.00</span>
+													Total : <span>{{ $event->price }}  Dhs</span>
 												</div>
 											</div>
 										</div>
@@ -144,14 +144,14 @@
 									<div class="col-lg-5">
 										<div class="QR-dt p-4">
 											<ul class="QR-counter-type">
-												<li>Online</li>
-												<li>Counter</li>
-												<li>0000000001</li>
+												<li>{{ $event->venue }}</li>
+												{{-- <li>Counter</li>
+												<li>0000000001</li> --}}
 											</ul>
 											<div class="QR-scanner">
-												<img src="/assets/images/qr.png" alt="QR-Ticket-Scanner">
+												<img src="/assets/images/qr.png"  alt="QR-Ticket-Scanner">
 											</div>
-											<p>Powered by Barren</p>
+											<p>Powered by Barren ADYZ</p>
 										</div>
 									</div>
 								</div>
