@@ -11,7 +11,11 @@ use App\Http\Controllers\EventController;
 use App\Http\Controllers\AchatController;
 use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Session;
+<<<<<<< HEAD
 use App\Http\Controllers\Auth\LoginnController;
+=======
+use Illuminate\Support\Facades\Auth;
+>>>>>>> 130616564aec0610edb242607e0f749e30a5e276
 
 
 
@@ -35,6 +39,7 @@ Route::get('/', function () {
     $events =DB::table('events')->paginate(12)->withQueryString();
     return view('client.index', ['events' => $events]);
 })->name('client.index');
+
 Route::get('/explore_events', function () {
     $events =DB::table('events')->paginate(12)->withQueryString();
     return view('client.explore_events', ['events' => $events]);
@@ -93,7 +98,7 @@ Route::get('auth/google/callback', [LoginnController::class, 'handleGoogleCallba
 
 
         
-Route::post('/sign_up', [RegisterController::class, 'register'])->name('register');
+Route::post('/register', [RegisterController::class, 'register'])->name('register');
 
 Route::post('/sign_in', [LoginController::class, 'login'])->name('login.submit');
 
@@ -109,6 +114,7 @@ Route::get('/venue_event_detail_view/{id}', [EventController::class, 'showEvente
 
 Route::get('/achat/{id}', [EventController::class, 'showprice'])->name('achat.show');
 Route::get('/confirmeTicket/{id}', [AchatController::class, 'showpConfirmation'])->name('confirmeTicket.show');
+
 
 
 /*----------------------------------------------------Admin--------------------------------------------*/   
