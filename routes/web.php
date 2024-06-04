@@ -11,6 +11,7 @@ use App\Http\Controllers\EventController;
 use App\Http\Controllers\AchatController;
 use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Session;
+use App\Http\Controllers\Auth\LoginnController;
 
 
 
@@ -67,9 +68,12 @@ Route::get('/sign_in', function () {
 Route::get('/forgot_password', function () {
     return view('client.forgot_password');
 });
-        
+
 Route::get('/about_us', function () {
     return view('client.about_us');
+});
+Route::get('/tickt_finale', function () {
+    return view('client.tickt_finale');
 });
 
 Route::get('/create_event', function () {
@@ -82,6 +86,12 @@ Route::get('/achat', function () {
     return view('client.achat');
 });
     
+
+
+Route::get('auth/google', [LoginnController::class, 'redirectToGoogle']);
+Route::get('auth/google/callback', [LoginnController::class, 'handleGoogleCallback']);
+
+
         
 Route::post('/sign_up', [RegisterController::class, 'register'])->name('register');
 
@@ -96,6 +106,9 @@ Route::post('/achat', [AchatController::class, 'achat'])->name('achat.achat');
 Route::get('/confirmeTicket', [AchatController::class, 'confirmeTicket'])->name('confirmeTicket');
 
 Route::get('/venue_event_detail_view/{id}', [EventController::class, 'showEvente'])->name('venue_event_detail_view.show');
+
+Route::get('/achat/{id}', [EventController::class, 'showprice'])->name('achat.show');
+Route::get('/confirmeTicket/{id}', [AchatController::class, 'showpConfirmation'])->name('confirmeTicket.show');
 
 
 /*----------------------------------------------------Admin--------------------------------------------*/   

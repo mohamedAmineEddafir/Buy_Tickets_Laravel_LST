@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
+use App\Models\Event;
 
 
 use Illuminate\Http\Request;
@@ -34,5 +35,15 @@ class AchatController extends Controller
     public function confirmeTicket()
     {
     return view('client.confirmeTicket');
+    }
+
+
+    public function showpConfirmation($id)
+    {
+      $event = Event::find($id);
+      $event = Event::join('users', 'events.user_id', '=', 'users.id')
+                        ->select('events.*')
+                        ->find($id);
+      return view('client.confirmeTicket', ['event' => $event]);
     }
 }

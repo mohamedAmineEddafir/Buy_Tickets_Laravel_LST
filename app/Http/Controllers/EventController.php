@@ -172,6 +172,16 @@ class EventController extends Controller
       return view('client.venue_event_detail_view', ['event' => $event]);
     }
 
+    
+    public function showprice($id)
+    {
+      $event = Event::find($id);
+      $event = Event::join('users', 'events.user_id', '=', 'users.id')
+                        ->select('events.*')
+                        ->find($id);
+      return view('client.achat', ['event' => $event]);
+    }
+
 
     
     public function updateStatusEvents(int $id)

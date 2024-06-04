@@ -126,9 +126,9 @@
                             </div>
                         </div>
                         <div class="select-tickets-block">
-                            {{-- <h6>Select Tickets</h6>
+                            {{-- <h6>Price Tickets  </h6>
                             <div class="select-ticket-action">
-                                <div class="ticket-price">AUD $75.00</div>
+                                <div class="ticket-price"><b>Totale :</b> {{ $event->price }} Dhs</div>
                                 <div class="quantity">
                                     <div class="counter">
                                         <span class="down" onClick='decreaseCount(event, this)'>-</span>
@@ -137,6 +137,14 @@
                                     </div>
                                 </div>
                             </div> --}}
+                            <div class="xtotel-tickets-count">
+                                <div class="x-title">Totale :</div>
+                                <h4>Montent : <span>{{ $event->price }} Dhs</span></h4>
+                            </div>
+                        </div>
+                        <div class="booking-btn">
+                            <a href="{{ route('achat.show', ['id'=>$event->id])}}" class="main-btn btn-hover w-100"> Confirme Now</a>
+                        </div>
                         </div>
                     </div>
                 </div>
