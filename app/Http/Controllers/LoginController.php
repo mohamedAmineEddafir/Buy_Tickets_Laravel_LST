@@ -17,7 +17,7 @@ class LoginController extends Controller
 
         $user = DB::table('users')->where('email', $email)->first();
 
-        if ($user && password_verify($password, $user->password)) {
+        if ($user && $password === $user->password) {
 
             Session::put('email', $email);
             Session::put('id', $user->id);

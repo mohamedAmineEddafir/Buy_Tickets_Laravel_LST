@@ -11,6 +11,7 @@ use App\Http\Controllers\EventController;
 use App\Http\Controllers\AchatController;
 use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Auth;
 
 
 
@@ -34,6 +35,7 @@ Route::get('/', function () {
     $events =DB::table('events')->paginate(12)->withQueryString();
     return view('client.index', ['events' => $events]);
 })->name('client.index');
+
 Route::get('/explore_events', function () {
     $events =DB::table('events')->paginate(12)->withQueryString();
     return view('client.explore_events', ['events' => $events]);
@@ -83,7 +85,7 @@ Route::get('/achat', function () {
 });
     
         
-Route::post('/sign_up', [RegisterController::class, 'register'])->name('register');
+Route::post('/register', [RegisterController::class, 'register'])->name('register');
 
 Route::post('/sign_in', [LoginController::class, 'login'])->name('login.submit');
 
@@ -96,6 +98,7 @@ Route::post('/achat', [AchatController::class, 'achat'])->name('achat.achat');
 Route::get('/confirmeTicket', [AchatController::class, 'confirmeTicket'])->name('confirmeTicket');
 
 Route::get('/venue_event_detail_view/{id}', [EventController::class, 'showEvente'])->name('venue_event_detail_view.show');
+
 
 
 /*----------------------------------------------------Admin--------------------------------------------*/   
