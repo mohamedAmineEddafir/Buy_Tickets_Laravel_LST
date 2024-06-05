@@ -102,8 +102,8 @@
                                 </div>
                                 <div class="col-lg-12 col-md-12">
                                      <div class="booking-btn">
-                            <a href="{{ route('confirmeTicket.show', ['id'=>$event->id])}}" class="main-btn btn-hover w-100"> Confirme Now</a>
-                        </div>
+                                        <a href="{{ route('confirmeTicket.show', ['id'=>$event->id])}}" class="main-btn btn-hover w-100 mt-5"> Confirme Now</a>
+                                    </div>
                                 </div>
                             </form>
                             </div>
@@ -132,10 +132,6 @@
                                 <div class="order-text">Total Ticket</div>
                                 <div class="order-number">1</div>
                             </div>
-                            {{-- <div class="order-total-dt">
-                                <div class="order-text">Sub Total</div>
-                                <div class="order-number">{{ $event->price }} </div>
-                            </div> --}}
                             <div class="divider-line"></div>
                             <div class="order-total-dt">
                                 <div class="order-text">Total : </div>

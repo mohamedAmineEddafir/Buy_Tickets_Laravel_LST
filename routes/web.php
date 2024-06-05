@@ -12,11 +12,6 @@ use App\Http\Controllers\AchatController;
 use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Session;
 use App\Http\Controllers\Auth\LoginnController;
-use Illuminate\Support\Facades\Auth;
-<<<<<<< HEAD
-
-=======
->>>>>>> ad6d546b83ce4ac6f68244fd844c29e724a9a775
 
 
 
@@ -95,9 +90,8 @@ Route::get('/achat', function () {
 
 
 Route::get('auth/google', [LoginnController::class, 'redirectToGoogle']);
+
 Route::get('auth/google/callback', [LoginnController::class, 'handleGoogleCallback']);
-
-
         
 Route::post('/register', [RegisterController::class, 'register'])->name('register');
 
@@ -114,9 +108,10 @@ Route::get('/confirmeTicket', [AchatController::class, 'confirmeTicket'])->name(
 Route::get('/venue_event_detail_view/{id}', [EventController::class, 'showEvente'])->name('venue_event_detail_view.show');
 
 Route::get('/achat/{id}', [EventController::class, 'showprice'])->name('achat.show');
-Route::get('/confirmeTicket/{id}', [AchatController::class, 'showpConfirmation'])->name('confirmeTicket.show');
-Route::get('/tickt_finale/{id}', [AchatController::class, 'showpticktfinale'])->name('tickt_finale.show');
 
+Route::get('/confirmeTicket/{id}', [AchatController::class, 'showpConfirmation'])->name('confirmeTicket.show');
+
+Route::get('/tickt_finale/{id}', [AchatController::class, 'showpticktfinale'])->name('tickt_finale.show');
 
 
 /*----------------------------------------------------Admin--------------------------------------------*/   
