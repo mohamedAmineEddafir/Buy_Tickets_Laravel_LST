@@ -60,12 +60,12 @@
                                             data-selected-text-format="count > 4" data-size="5"
                                             title="Select category" id="eventCategory" data-live-search="true" name="category" required>
                                             <option selected>{{ $event->category }}</option>
-                                            @foreach(['Arts', 'Business', 'Coaching and Consulting', 'Community and Culture', 
-                                                      'Entrepreneurship', 'Education and Training', 'Family and Friends', 
-                                                      'Fashion and Beauty', 'Film and Entertainment', 'Food and Drink', 
-                                                      'Government and Politics', 'Health and Wellbeing', 'Hobbies and Interest', 
+                                            @foreach(['Arts', 'Business', 'Concert', 'Workshops', 
+                                                      'Coaching and Consulting', 'Education and Training', 'Family and Friends', 
+                                                      'Fashion and Beauty', 'Health and Wellbeing', 'Volunteer', 
+                                                      'Sports', 'Hobbies and Interest', 
                                                       'Music and Theater', 'Religion and Spirituality', 'Science and Technology', 
-                                                      'Sports and Fitness', 'Travel and Outdoor', 'Visual Arts', 'Others'] 
+                                                      'Sports', 'Travel and Outdoor', 'Visual Arts', 'Others'] 
                                                       as $category)
                                                 <option value="{{ $category }}" @if($event->category == $category) selected @endif>{{ $category }}</option>
                                             @endforeach

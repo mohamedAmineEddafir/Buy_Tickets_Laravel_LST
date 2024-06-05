@@ -29,8 +29,13 @@ class EventController extends Controller
             'ticket.name' => 'required|string|max:255',
             'ticket.total' => 'required|integer',
             'ticket.price' => 'required|numeric',
+            'Status' => 'integer',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
+
+        if (!isset($validatedData['Status'])) {
+            $validatedData['Status'] = 0;
+        }
 
         // Handle the file upload if exists
         $imageName = null;
@@ -154,5 +159,44 @@ class EventController extends Controller
 
         $eventdel->delete();
         return redirect()->route('events')->with('success', 'Events has been deleted!');
+    }
+
+
+    //Show Details Events
+    public function showEvente($id)
+    {
+      $event = Event::find($id);
+      $event = Event::join('users', 'events.user_id', '=', 'users.id')
+                        ->select('events.*', 'users.firstName', 'users.lastName')
+                        ->find($id);
+      return view('client.venue_event_detail_view', ['event' => $event]);
+    }
+
+    
+    public function showprice($id)
+    {
+      $event = Event::find($id);
+      $event = Event::join('users', 'events.user_id', '=', 'users.id')
+                        ->select('events.*')
+                        ->find($id);
+      return view('client.achat', ['event' => $event]);
+    }
+
+
+    
+    public function updateStatusEvents(int $id)
+    {
+        $events = Event::find($id);
+        if($events){
+            if($events->Status){
+                $events->Status = 0;
+            } else {
+                $events->Status = 1;
+            }
+
+            $events->save();
+        }
+        return back();
+
     }
 }

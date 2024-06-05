@@ -51,7 +51,7 @@
                                 <a class="nav-link " aria-current="page" href="/about_us">About Us</a> 
                             </li>
 
-                            @if(Session::get('email') !== null)
+                            @if(Session::get('role') === 'admin')
                             <li class="nav-item">
                                 <a class="nav-link " aria-current="page" href="{{ url('/dashbord')}}">Dashboard </a>
                             </li>

@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Event;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
@@ -8,9 +9,14 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\AchatController;
+use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Session;
+<<<<<<< HEAD
 use App\Http\Controllers\DemandeController;
 
+=======
+use App\Http\Controllers\Auth\LoginnController;
+>>>>>>> d0c0906256b3adec85607302c53f015bdf050a86
 
 
 
@@ -31,7 +37,8 @@ use App\Http\Controllers\DemandeController;
 
             
 Route::get('/', function () {
-    return view('client.index');
+    $events =DB::table('events')->paginate(12)->withQueryString();
+    return view('client.index', ['events' => $events]);
 })->name('client.index');
 
 Route::get('/explore_events', function () {
@@ -67,9 +74,12 @@ Route::get('/sign_in', function () {
 Route::get('/forgot_password', function () {
     return view('client.forgot_password');
 });
-        
+
 Route::get('/about_us', function () {
     return view('client.about_us');
+});
+Route::get('/tickt_finale', function () {
+    return view('client.tickt_finale');
 });
 
 Route::get('/create_event', function () {
@@ -82,8 +92,13 @@ Route::get('/achat', function () {
     return view('client.achat');
 });
     
+
+
+Route::get('auth/google', [LoginnController::class, 'redirectToGoogle']);
+
+Route::get('auth/google/callback', [LoginnController::class, 'handleGoogleCallback']);
         
-Route::post('/sign_up', [RegisterController::class, 'register'])->name('register');
+Route::post('/register', [RegisterController::class, 'register'])->name('register');
 
 Route::post('/sign_in', [LoginController::class, 'login'])->name('login.submit');
 
@@ -92,17 +107,32 @@ Route::post('/Logout', [LogoutController::class, 'logout'])->name('logout');
 Route::post('/create_event', [EventController::class, 'store'])->name('create_event');
 
 Route::post('/achat', [AchatController::class, 'achat'])->name('achat.achat');
+
 Route::get('/confirmeTicket', [AchatController::class, 'confirmeTicket'])->name('confirmeTicket');
 
+Route::get('/venue_event_detail_view/{id}', [EventController::class, 'showEvente'])->name('venue_event_detail_view.show');
 
-/*----------------------------------------------------Admin--------------------------------------------*/
-                   
+Route::get('/achat/{id}', [EventController::class, 'showprice'])->name('achat.show');
+
+Route::get('/confirmeTicket/{id}', [AchatController::class, 'showpConfirmation'])->name('confirmeTicket.show');
+
+Route::get('/tickt_finale/{id}', [AchatController::class, 'showpticktfinale'])->name('tickt_finale.show');
+
+
+/*----------------------------------------------------Admin--------------------------------------------*/   
+
+/*
+    & Basic Route to return dashboard 
+
 Route::get('/dashbord', function () {
     if(Session::get('email') === null) {
         return redirect()->route('login');
     }
     return view('admin.dashbord');
- });
+});
+*/
+
+Route::get('/dashbord', [DashboardController::class, 'show'])->name('dashbord');
 
 Route::get('/events', function () {
     if(Session::get('email') === null) {
@@ -113,9 +143,14 @@ Route::get('/events', function () {
 
 /*+++++++++++++++++++++++++++++++++++++++++++++++++++/ Events Start /+++++++++++++++++++++++++++++++++++++++++++++++++*/
 
+<<<<<<< HEAD
  // get data with url withOut controller
  Route::get('/events', function (Request $request) {
         $search = $request->input('search');
+=======
+ Route::get('/events', function (Request $request) {
+    $search = $request->input('search');
+>>>>>>> d0c0906256b3adec85607302c53f015bdf050a86
 
         // Si un terme de recherche est présent filtrer les résultats
         if ($search) {
@@ -131,6 +166,7 @@ Route::get('/events', function () {
     return view('admin.events', ['events' => $events, 'eventCount' => $eventCount, 'search' => $search]);
 })->name('events');
 
+Route::get('events/{id}', [EventController::class, 'updateStatusEvents']) ->name('events.status');
 Route::get('events/{id}/modify-Events', [EventController::class, 'EventGetData'])->name('events.modify');
 Route::put('events/{id}/modify-Events', [EventController::class, 'EventUpdateData'])->name('events.update');
 Route::get('events/{id}/delete-Events', [EventController::class, 'EventDestroyData'])->name('events.destroy');

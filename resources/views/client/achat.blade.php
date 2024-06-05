@@ -22,7 +22,7 @@
                                 <div class="col-lg-6 col-md-12">
                                     <div class="form-group mt-4">
                                         <label class="form-label">First Name*</label>
-                                        <input class="form-control h_50" type="text" name="firstName" placeholder="" >																								
+                                        <input class="form-control h_50" type="text" name="firstName" placeholder=""  required>																								
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-md-12">
@@ -66,7 +66,7 @@
                                 <div class="col-lg-6 col-md-12">
                                     <div class="form-group mt-4">
                                         <label class="form-label">City</label>
-                                        <input class="form-control h_50" name="city" type="text" placeholder="" value="">																								
+                                        <input class="form-control h_50" name="city" type="text" placeholder="" required>																								
                                     </div>
                                 </div>
                                
@@ -75,7 +75,7 @@
                     </div>
                     <div class="main-card mt-5">
                         <div class="bp-title">
-                            <h4>Total Payable Amount : AUD $50.00</h4>
+                            <h4>Total Payable Amount : {{ $event->price }}</h4>
                         </div>
                         <div class="bp-content bp-form">
                             <div class="row">
@@ -101,7 +101,9 @@
                                     </div>
                                 </div>
                                 <div class="col-lg-12 col-md-12">
-                                    <button class="main-btn btn-hover h_50 w-100 mt-5" type="submit">Confirm & Pay</button>
+                                     <div class="booking-btn">
+                                        <a href="{{ route('confirmeTicket.show', ['id'=>$event->id])}}" class="main-btn btn-hover w-100 mt-5"> Confirme Now</a>
+                                    </div>
                                 </div>
                             </form>
                             </div>
@@ -117,12 +119,12 @@
                     <div class="order-summary-content p_30">
                         <div class="event-order-dt">
                             <div class="event-thumbnail-img">
-                                <img src="{{asset('assets/images/event-imgs/img-7.jpg')}}" alt="">
+                                <img src="{{asset('images/'. $event->image) }}" alt="">
                             </div>
                             <div class="event-order-dt-content">
-                                <h5>Tutorial on Canvas Painting for Beginners</h5>
-                                <span>Wed, Jun 01, 2022 5:30 AM</span>
-                                <div class="category-type">Online Event</div>
+                                <h5>{{ $event->event_name }}</h5>
+                                <span><b style="color: black">Date</b> : {{ $event->date }} , <b style="color: black">Heurs</b> {{ $event->duration }} H</span>
+                                <div class="category-type"><b>Localisation : </b> {{ $event->venue }} </div>
                             </div>
                         </div>
                         <div class="order-total-block">
@@ -130,14 +132,10 @@
                                 <div class="order-text">Total Ticket</div>
                                 <div class="order-number">1</div>
                             </div>
-                            <div class="order-total-dt">
-                                <div class="order-text">Sub Total</div>
-                                <div class="order-number">$50.00</div>
-                            </div>
                             <div class="divider-line"></div>
                             <div class="order-total-dt">
-                                <div class="order-text">Total</div>
-                                <div class="order-number ttl-clr">AUD $50.00</div>
+                                <div class="order-text">Total : </div>
+                                <div class="order-number ttl-clr">{{ $event->price }} Dhs</div>
                             </div>
                         </div>
                        

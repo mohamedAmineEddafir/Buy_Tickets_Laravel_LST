@@ -15,7 +15,7 @@
                         <i class="fa-solid fa-bars"></i>
                     </span>
                 </button>
-                <a class="navbar-brand order-1 order-lg-0 ml-lg-0 ml-2 me-auto" href="index.html">
+                <a class="navbar-brand order-1 order-lg-0 ml-lg-0 ml-2 me-auto" href="{{ url('/dashbord') }}">
                     <div class="res-main-logo">
                         <img src="images/logo-icon.svg" alt="">
                     </div>
@@ -34,48 +34,18 @@
                         </button>
                     </div>
                     <div class="offcanvas-body">
-                        <div class="offcanvas-top-area">
-                            <div class="create-bg">
-                                <a href="create.html" class="offcanvas-create-btn">
-                                    <i class="fa-solid fa-calendar-days"></i>
-                                    <span>Create Event</span>
-                                </a>
-                            </div>
-                        </div>
                         <ul class="navbar-nav justify-content-end flex-grow-1 pe_5">
-                            <!-- <li class="nav-item">
-                                <a class="nav-link" href="organiser_profile_view.html">
-                                    <i class="fa-solid fa-right-left me-2"></i>My Home
-                                </a>
-                            </li> -->
                             <li class="nav-item">
-                                <a class="nav-link" href="explore_events.html">
+                                <a class="nav-link" href="{{url('/explore_events')}}">
                                     <i class="fa-solid fa-compass me-2"></i>Explore Events
                                 </a>
                             </li>
                         </ul>
                     </div>
-                    <div class="offcanvas-footer">
-                        {{-- <div class="offcanvas-social">
-                            <h5>Follow Us</h5>
-                            <ul class="social-links">
-                                <li><a href="#" class="social-link"><i class="fab fa-facebook-square"></i></a>
-                                </li><li><a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-                                </li><li><a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                                </li><li><a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
-                                </li><li><a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
-                            </li></ul>
-                        </div> --}}
-                    </div>
+                    <div class="offcanvas-footer"></div>
                 </div>
                 <div class="right-header order-2">
                     <ul class="align-self-stretch">
-                        <li>
-                            <a href="create.html" class="create-btn btn-hover">
-                                <i class="fa-solid fa-calendar-days"></i>
-                                <span>Create Event</span>
-                            </a>
-                        </li>
                         <li class="dropdown account-dropdown order-3">
                             <a href="#" class="account-link" role="button" id="accountClick" data-bs-auto-close="outside" data-bs-toggle="dropdown" aria-expanded="false">
                                 <img src="{{asset('assets/images/profile-imgs/img-13.jpg')}}" alt="">
@@ -93,7 +63,7 @@
                                 </li>
                                 <li class="profile-link">
                                     <a href="organiser_profile_view.html" class="link-item">My Profile</a>									
-                                    <a href="sign_in.html" class="link-item">Sign Out</a>									
+                                    <a href="{{ url('/')}}" class="link-item">Home Page</a>									
                                 </li>
                             </ul>
                         </li>

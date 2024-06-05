@@ -111,9 +111,7 @@
                 var eventState = document.getElementById('eventState').value.trim();
                 var eventCity = document.getElementById('eventCity').value.trim();
                 var eventZip = document.getElementById('eventZip').value.trim();
-                var ticketName = document.querySelector("input[placeholder='Event Ticket Name']")
-                    .value.trim();
-
+                var ticketName = document.querySelector("input[placeholder='Event Ticket Name']").value.trim();
                 var ticketTotal = document.getElementById('ticketInput').value.trim();
                 var ticketPrice = document.querySelector("input[placeholder='Price']").value.trim();
 
@@ -153,6 +151,7 @@
                     contentType: false,
                     success: function(response) {
                         alert('Event created successfully!');
+                        window.location.href = '{{ route('explore_events') }}';
                     },
                     error: function(xhr, status, error) {
                         console.error(xhr.responseText);
@@ -240,18 +239,15 @@
         var eventCity = document.getElementById("eventCity");
         var eventZip = document.getElementById("eventZip");
 
-
-
+        // Get the modal element
+        var singleTicketModal = new bootstrap.Modal(document.getElementById('singleTicketModal'));
 
         // Save Ticket Button functionality
         saveTicketBtn.addEventListener("click", function() {
             var selectedDateValue = eventDatePicker.value.trim();
-            var ticketName = document.querySelector(
-                "#singleTicketModal input[placeholder='Event Ticket Name']").value.trim();
-            var ticketPrice = document.querySelector("#singleTicketModal input[placeholder='Price']")
-                .value.trim();
+            var ticketName = document.querySelector("#singleTicketModal input[placeholder='Event Ticket Name']").value.trim();
+            var ticketPrice = document.querySelector("#singleTicketModal input[placeholder='Price']").value.trim();
             var totalTickets = document.getElementById("ticketInput").value.trim();
-
             var ticketTypeList = document.querySelector(".ticket-type-item-list");
 
             // Check if there are already 1 ticket in the list
@@ -295,16 +291,15 @@
                 </div>
             `;
                 ticketTypeList.appendChild(newTicketCard);
-
-                // Clear form inputs
-
                 // Show the ticket type list
                 ticketTypeList.style.display = "block";
+
+                // Hide the modal
+                singleTicketModal.hide();
             } else {
                 alert("Please fill in all required fields and select a date.");
             }
         });
-
         // Event delegation for delete tickets
         document.querySelector(".ticket-type-item-list").addEventListener("click", function(event) {
             if (event.target.closest(".delete-ticket")) {
@@ -317,11 +312,5 @@
     });
     </script>
 
-
-
-
-
 </body>
-
-
 </html>
