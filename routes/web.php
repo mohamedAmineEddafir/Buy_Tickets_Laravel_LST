@@ -9,6 +9,8 @@ use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\AchatController;
 use Illuminate\Support\Facades\Session;
+use App\Http\Controllers\DemandeController;
+
 
 
 
@@ -102,35 +104,31 @@ Route::get('/dashbord', function () {
     return view('admin.dashbord');
  });
 
+Route::get('/events', function () {
+    if(Session::get('email') === null) {
+        return redirect()->route('login');
+    }
+    return view('admin.events');
+});
+
 /*+++++++++++++++++++++++++++++++++++++++++++++++++++/ Events Start /+++++++++++++++++++++++++++++++++++++++++++++++++*/
 
-Route::get('/events', function (Request $request) {
-    $search = $request->input('search');
+ // get data with url withOut controller
+ Route::get('/events', function (Request $request) {
+        $search = $request->input('search');
 
-    // Construire la requête de base avec jointure
-    $query = DB::table('events')
-        ->join('users', 'events.user_id', '=', 'users.id')
-        ->select(
-            'events.*',
-            'users.firstName as user_firstName',
-            'users.lastName as user_lastName',
-            'users.email as user_email'
-        );
-
-    // Si un terme de recherche est présent, filtrer les résultats
-    if ($search) {
-        $query->where('events.title', 'LIKE', '%' . $search . '%');
-    }
-
-    // Exécuter la requête et obtenir les résultats
-    $events = $query->get();
+        // Si un terme de recherche est présent filtrer les résultats
+        if ($search) {
+            $events = DB::table('events')
+                ->where('title', 'LIKE', '%' . $search . '%')
+                ->get();
+        } else {
+            // Sinon, récupérer tous les événements
+            $events = DB::table('events')->get();
+        }
     $eventCount = $events->count(); // Compter le nombre d'événements
 
-    return view('admin.events', [
-        'events' => $events,
-        'eventCount' => $eventCount,
-        'search' => $search
-    ]);
+    return view('admin.events', ['events' => $events, 'eventCount' => $eventCount, 'search' => $search]);
 })->name('events');
 
 Route::get('events/{id}/modify-Events', [EventController::class, 'EventGetData'])->name('events.modify');
@@ -147,16 +145,68 @@ Route::get('/modify-Events', function () {
     return view('admin.eventsUpdate');
 });
 
-Route::get('/demande', function () {
-    if(Session::get('email') === null) {
-        return redirect()->route('login');
-    }
-     return view('admin.demande');
-});
+
+
+
 
 Route::get('/my_teams', function () {
     if(Session::get('email') === null) {
         return redirect()->route('login');
     }
     return view('admin.my_teams');
+});
+
+
+
+Route::get('/events', function (Request $request){
+    $search = $request->input('search');
+
+    // Construire la requête de base avec jointure
+    $query = DB::table('events')
+        ->join('users', 'events.user_id', '=', 'users.id')
+        ->select(
+            'events.*',
+            'users.firstName as user_firstName',
+            'users.lastName as user_lastName',
+            'users.email as user_email'
+        );
+
+
+
+});
+
+
+/*----------------------------------------------------vente--------------------------------------------*/
+
+
+
+
+Route::get('/vente', function (Request $request) {
+    $search = $request->input('search');
+
+    $query = DB::table('vente')
+        ->join('users', 'vente.user_id', '=', 'users.id')
+        ->join('events', 'vente.user_id', '=', 'events.id')
+        ->select(
+            'vente.*',
+            'users.firstName as user_firstName',
+            'users.lastName as user_lastName',
+            'users.email as user_email',
+            'users.phone as user_phone',
+            'events.event_name as event_name',
+            'events.price as event_price'
+        );
+
+    if ($search) {
+        $query->where('users.firstName', 'like', "%$search%")
+            ->orWhere('users.lastName', 'like', "%$search%")
+            ->orWhere('users.email', 'like', "%$search%")
+            ->orWhere('users.phone', 'like', "%$search%")
+            ->orWhere('events.event_name', 'like', "%$search%");
+
+    }
+
+    $ventes = $query->get();
+
+    return view('admin.vente', compact('ventes'));
 });
