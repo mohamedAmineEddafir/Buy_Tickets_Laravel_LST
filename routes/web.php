@@ -144,6 +144,7 @@ Route::get('/events', function () {
  // get data with url withOut controller
  Route::get('/events', function (Request $request) {
         $search = $request->input('search');
+ });   
 
  Route::get('/events', function (Request $request) {
     $search = $request->input('search');
