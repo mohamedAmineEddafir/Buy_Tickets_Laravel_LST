@@ -161,7 +161,6 @@ class EventController extends Controller
         return redirect()->route('events')->with('success', 'Events has been deleted!');
     }
 
-
     //Show Details Events
     public function showEvente($id)
     {
@@ -171,7 +170,6 @@ class EventController extends Controller
                         ->find($id);
       return view('client.venue_event_detail_view', ['event' => $event]);
     }
-
     
     public function showprice($id)
     {
@@ -181,8 +179,6 @@ class EventController extends Controller
                         ->find($id);
       return view('client.achat', ['event' => $event]);
     }
-
-
     
     public function updateStatusEvents(int $id)
     {
@@ -197,6 +193,5 @@ class EventController extends Controller
             $events->save();
         }
         return back();
-
     }
 }
