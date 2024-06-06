@@ -140,14 +140,13 @@ Route::get('/events', function () {
 
 /*+++++++++++++++++++++++++++++++++++++++++++++++++++/ Events Start /+++++++++++++++++++++++++++++++++++++++++++++++++*/
 
-<<<<<<< HEAD
+
  // get data with url withOut controller
  Route::get('/events', function (Request $request) {
         $search = $request->input('search');
-=======
+
  Route::get('/events', function (Request $request) {
     $search = $request->input('search');
->>>>>>> d0c0906256b3adec85607302c53f015bdf050a86
 
         // Si un terme de recherche est présent filtrer les résultats
         if ($search) {
