@@ -11,12 +11,9 @@ use App\Http\Controllers\EventController;
 use App\Http\Controllers\AchatController;
 use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Session;
-<<<<<<< HEAD
 use App\Http\Controllers\DemandeController;
-
-=======
 use App\Http\Controllers\Auth\LoginnController;
->>>>>>> d0c0906256b3adec85607302c53f015bdf050a86
+
 
 
 
