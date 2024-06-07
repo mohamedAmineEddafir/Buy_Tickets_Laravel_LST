@@ -12,6 +12,7 @@ use App\Http\Controllers\AchatController;
 use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Session;
 use App\Http\Controllers\Auth\LoginnController;
+use App\Http\Controllers\UserController;
 
 
 
@@ -31,19 +32,19 @@ use App\Http\Controllers\Auth\LoginnController;
 
 /*----------------------------------------------------Client--------------------------------------------*/
 
-            
+
 Route::get('/', function () {
-    $events =DB::table('events')->paginate(12)->withQueryString();
+    $events = DB::table('events')->paginate(12)->withQueryString();
     return view('client.index', ['events' => $events]);
 })->name('client.index');
 
 Route::get('/explore_events', function () {
-    $events =DB::table('events')->paginate(12)->withQueryString();
+    $events = DB::table('events')->paginate(12)->withQueryString();
     return view('client.explore_events', ['events' => $events]);
 })->name('explore_events');
 
 Route::get('/explore_events/{Category}', function ($Category) {
-    $events =DB::table('events')->where(['category' => $Category])->paginate(12)->withQueryString();
+    $events = DB::table('events')->where(['category' => $Category])->paginate(12)->withQueryString();
     return view('client.explore_events', ['events' => $events]);
 })->name('events.filter');
 
@@ -55,7 +56,7 @@ Route::get('/venue_event_detail_view', function () {
     return view('client.venue_event_detail_view');
 });
 
- Route::get('/contact_us', function () {
+Route::get('/contact_us', function () {
     return view('client.contact_us');
 });
 
@@ -64,7 +65,7 @@ Route::get('/sign_up', function () {
 });
 
 Route::get('/sign_in', function () {
-     return view('client.sign_in');
+    return view('client.sign_in');
 })->name('login');
 
 Route::get('/forgot_password', function () {
@@ -79,7 +80,7 @@ Route::get('/tickt_finale', function () {
 });
 
 Route::get('/create_event', function () {
-    if(Session::get('email') === null) {
+    if (Session::get('email') === null) {
         return redirect()->route('login');
     }
     return view('client.create_event');
@@ -87,13 +88,13 @@ Route::get('/create_event', function () {
 Route::get('/achat', function () {
     return view('client.achat');
 });
-    
+
 
 
 Route::get('auth/google', [LoginnController::class, 'redirectToGoogle']);
 
 Route::get('auth/google/callback', [LoginnController::class, 'handleGoogleCallback']);
-        
+
 Route::post('/register', [RegisterController::class, 'register'])->name('register');
 
 Route::post('/sign_in', [LoginController::class, 'login'])->name('login.submit');
@@ -115,7 +116,7 @@ Route::get('/confirmeTicket/{id}', [AchatController::class, 'showpConfirmation']
 Route::get('/tickt_finale/{id}', [AchatController::class, 'showpticktfinale'])->name('tickt_finale.show');
 // Route::get('/tickt_finale/{id}', [AchatController::class, 'tickets'])->name('tickt_finale.generate');
 
-/*----------------------------------------------------Admin--------------------------------------------*/   
+/*----------------------------------------------------Admin--------------------------------------------*/
 
 /*
     & Basic Route to return dashboard 
@@ -130,15 +131,9 @@ Route::get('/dashbord', function () {
 
 Route::get('/dashbord', [DashboardController::class, 'show'])->name('dashbord');
 
-Route::get('/events', function () {
-    if(Session::get('email') === null) {
-        return redirect()->route('login');
-    }
-    return view('admin.events');
-});
-
 /*+++++++++++++++++++++++++++++++++++++++++++++++++++/ Events Start /+++++++++++++++++++++++++++++++++++++++++++++++++*/
 
+<<<<<<< HEAD
 
  // get data with url withOut controller
  Route::get('/events', function (Request $request) {
@@ -151,17 +146,28 @@ Route::get('/events', function () {
  });
 
  Route::get('/events', function (Request $request) {
+=======
+Route::get('/events', function (Request $request) {
+>>>>>>> a987029edc65355fe84ea3a4332fde6a194fcb57
     $search = $request->input('search');
 
-        // Si un terme de recherche est présent filtrer les résultats
-        if ($search) {
-            $events = DB::table('events')
-                ->where('title', 'LIKE', '%' . $search . '%')
-                ->get();
-        } else {
-            // Sinon, récupérer tous les événements
-            $events = DB::table('events')->get();
-        }
+    // Construire la requête de base avec jointure
+    $query = DB::table('events')
+        ->join('users', 'events.user_id', '=', 'users.id')
+        ->select(
+            'events.*',
+            'users.firstName as user_firstName',
+            'users.lastName as user_lastName',
+            'users.email as user_email'
+        );
+
+    // Si un terme de recherche est présent, filtrer les résultats
+    if ($search) {
+        $query->where('events.title', 'LIKE', '%' . $search . '%');
+    }
+
+    // Exécuter la requête et obtenir les résultats
+    $events = $query->get();
     $eventCount = $events->count(); // Compter le nombre d'événements
 
     return view('admin.events', ['events' => $events, 'eventCount' => $eventCount, 'search' => $search]);
@@ -176,7 +182,7 @@ Route::get('events/{id}/delete-Events', [EventController::class, 'EventDestroyDa
 /*+++++++++++++++++++++++++++++++++++++++++++++++++++/ End Events /+++++++++++++++++++++++++++++++++++++++++++++++++*/
 
 Route::get('/modify-Events', function () {
-    if(Session::get('email') === null) {
+    if (Session::get('email') === null) {
         return redirect()->route('login');
     }
     return view('admin.eventsUpdate');
@@ -187,30 +193,33 @@ Route::get('/modify-Events', function () {
 
 
 Route::get('/my_teams', function () {
-    if(Session::get('email') === null) {
+    if (Session::get('email') === null) {
         return redirect()->route('login');
     }
-    return view('admin.my_teams');
+    $users = DB::table('users')->get();
+
+    return view('admin.my_teams', compact('users'));
 });
 
 
+Route::post('/my_teams/adduser',[UserController::class,'adduser']);
 
-Route::get('/events', function (Request $request){
-    $search = $request->input('search');
-
-    // Construire la requête de base avec jointure
-    $query = DB::table('events')
-        ->join('users', 'events.user_id', '=', 'users.id')
-        ->select(
-            'events.*',
-            'users.firstName as user_firstName',
-            'users.lastName as user_lastName',
-            'users.email as user_email'
-        );
-
-
-
+Route::get('/my_teams/editmember/{id}', function ($id) {
+    $user = DB::table('users')->where('id', $id)->first();
+    return view('admin.update_member', compact('user'));
 });
+
+
+Route::put('/my_teams/updateuser/{id}',[UserController::class,'updateuser']);
+
+
+Route::put('/Unactivateuser/{id}',[UserController::class,'Unactivateuser']);
+Route::put('/activateuser/{id}',[UserController::class,'activateuser']);
+
+
+Route::get('password/reset/{token}/{email}', [RegisterController::class, 'showResetPasswordForm'])->name('password.reset');
+Route::post('password/update', [RegisterController::class, 'processPasswordReset'])->name('process.password.reset');
+Route::post('/forget-password', [RegisterController::class, 'forgetPassword'])->name('forget.password');
 
 
 /*----------------------------------------------------vente--------------------------------------------*/
