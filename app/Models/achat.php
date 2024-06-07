@@ -18,8 +18,6 @@ class Checkout extends Model
         'address',
         'country',
         'city',
-        
-
     ];
 
    

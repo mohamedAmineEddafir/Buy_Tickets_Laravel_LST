@@ -11,7 +11,6 @@ use App\Http\Controllers\EventController;
 use App\Http\Controllers\AchatController;
 use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Session;
-use App\Http\Controllers\DemandeController;
 use App\Http\Controllers\Auth\LoginnController;
 
 
@@ -110,11 +109,11 @@ Route::get('/confirmeTicket', [AchatController::class, 'confirmeTicket'])->name(
 Route::get('/venue_event_detail_view/{id}', [EventController::class, 'showEvente'])->name('venue_event_detail_view.show');
 
 Route::get('/achat/{id}', [EventController::class, 'showprice'])->name('achat.show');
-
-Route::get('/confirmeTicket/{id}', [AchatController::class, 'showpConfirmation'])->name('confirmeTicket.show');
+Route::post('/achat', [AchatController::class, 'achat'])->name('achat.achat');
+Route::get('/confirmeTicket/{id}', [AchatController::class, 'showpConfirmation'])->name('confirmeTicketId');
 
 Route::get('/tickt_finale/{id}', [AchatController::class, 'showpticktfinale'])->name('tickt_finale.show');
-
+// Route::get('/tickt_finale/{id}', [AchatController::class, 'tickets'])->name('tickt_finale.generate');
 
 /*----------------------------------------------------Admin--------------------------------------------*/   
 
@@ -145,6 +144,11 @@ Route::get('/events', function () {
  Route::get('/events', function (Request $request) {
         $search = $request->input('search');
  });   
+
+ // get data with url withOut controller
+ Route::get('/events', function (Request $request) {
+        $search = $request->input('search');
+ });
 
  Route::get('/events', function (Request $request) {
     $search = $request->input('search');

@@ -45,9 +45,9 @@
                                             <img src="{{asset('images/'. $event->image) }}" alt="">
                                         </div>
                                         <div class="event-order-dt-content">
-                                            <h5>Tutorial on Canvas Painting for Beginners</h5>
+                                            <h5>{{ $event->event_name }}</h5>
                                             <span>{{ $event->venue }} , {{ $event->date }} , {{ $event->time }} AM. {{ $event->duration }} h</span>
-                                            <div class="buyer-name">John Doe</div>
+                                            <div class="buyer-name">{{ $event->firstName }} {{ $event->lastName }}</div>
                                             <div class="booking-total-tickets">
                                                 <i class="fa-solid fa-ticket rotate-icon"></i>
                                                 <span class="booking-count-tickets mx-2">1</span>x Ticket
@@ -57,7 +57,9 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <a href="{{ route('tickt_finale.show', ['id'=>$event->id])}}" class="main-btn btn-hover h_50 w-100 mt-5"><i class="fa-solid fa-ticket rotate-icon me-3"></i>View Ticket</a>
+                                    <a href="{{ route('tickt_finale.show', ['id' => $event->id]) }}" target="_blank" class="main-btn btn-hover h_50 w-100 mt-5">
+                                        <i class="fa-solid fa-ticket rotate-icon me-3"></i>View Ticket
+                                    </a>
                                 </div>
                             </div>
                         </div>

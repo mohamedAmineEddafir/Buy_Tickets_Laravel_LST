@@ -28,19 +28,19 @@
                                 <div class="col-lg-6 col-md-12">
                                     <div class="form-group mt-4">
                                         <label class="form-label">Last Name*</label>
-                                        <input class="form-control h_50" type="text" name="lastName" placeholder="" >																								
+                                        <input class="form-control h_50" type="text" name="lastName" placeholder="" required>																								
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-md-12">
                                     <div class="form-group mt-4">
                                         <label class="form-label">Email*</label>
-                                        <input class="form-control h_50" type="text"  name="email" placeholder=""  >																								
+                                        <input class="form-control h_50" type="text"  name="email" placeholder="" required>																								
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-md-12">
                                     <div class="form-group mt-4">
                                         <label class="form-label">Address*</label>
-                                        <input class="form-control h_50" type="text" name="address" placeholder="" value="">																								
+                                        <input class="form-control h_50" type="text" name="address" placeholder="" value="" required>																								
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-md-12">
@@ -102,7 +102,9 @@
                                 </div>
                                 <div class="col-lg-12 col-md-12">
                                      <div class="booking-btn">
-                                        <a href="{{ route('confirmeTicket.show', ['id'=>$event->id])}}" class="main-btn btn-hover w-100 mt-5"> Confirme Now</a>
+                                        {{-- <a href="{{ route('confirmeTicketId', ['id'=>$event->id])}}"  class="main-btn btn-hover w-100 mt-5"> Confirme Now</a> --}}
+                                        <button class="main-btn btn-hover h_50 w-100" type="submit">Submit</button>
+                                        <input type="hidden" name="eventId" value="{{ $event->id }}">
                                     </div>
                                 </div>
                             </form>

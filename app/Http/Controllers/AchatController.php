@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 use App\Models\Event;
-
+use PDF;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 use Illuminate\Http\Request;
 
@@ -29,20 +30,19 @@ class AchatController extends Controller
             'city' => $city,
             'user_id' => $id,
         ]);
-
-        return redirect()->route('confirmeTicket')->with('success', 'Checkout successful!');
+        return redirect()->route('confirmeTicketId', ['id' => $request->eventId]);
     }
-    public function confirmeTicket()
-    {
-    return view('client.confirmeTicket');
-    }
+    // public function confirmeTicket()
+    // {
+    // return view('client.confirmeTicket');
+    // }
 
 
     public function showpConfirmation($id)
     {
       $event = Event::find($id);
       $event = Event::join('users', 'events.user_id', '=', 'users.id')
-                        ->select('events.*')
+                        ->select('events.*' , 'users.firstName', 'users.lastName')
                         ->find($id);
       return view('client.confirmeTicket', ['event' => $event]);
     }
@@ -55,5 +55,20 @@ class AchatController extends Controller
                         ->find($id);
       return view('client.tickt_finale', ['event' => $event]);
     }
+
+    // public function tickets($id)
+    // {
+    //      $event = Event::findOrFail($id);
+    //      $event = Event::join('users', 'events.user_id', '=', 'users.id')
+    //      ->select('events.*', 'users.firstName', 'users.lastName')
+    //      ->find($id);
+    // // Générer le contenu du ticket PDF
+    // $pdf =\Barryvdh\DomPDF\Facade\PDF::loadView('client.tickt_finale', compact('event'))
+    //             ->setPaper('a4') // Définir le format de papier si nécessaire
+    //             ->setOptions(['defaultFont' => 'sans-serif']); // Définir la police par défaut
+
+    // // Retourner le contenu PDF pour affichage ou téléchargement
+    // return $pdf->stream('tickt_finale.pdf');
+    // }
     
 }
