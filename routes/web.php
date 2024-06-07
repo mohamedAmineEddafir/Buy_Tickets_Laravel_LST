@@ -13,6 +13,7 @@ use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Session;
 use App\Http\Controllers\DemandeController;
 use App\Http\Controllers\Auth\LoginnController;
+use App\Http\Controllers\UserController;
 
 
 
@@ -181,8 +182,30 @@ Route::get('/my_teams', function () {
     if (Session::get('email') === null) {
         return redirect()->route('login');
     }
-    return view('admin.my_teams');
+    $users = DB::table('users')->get();
+
+    return view('admin.my_teams', compact('users'));
 });
+
+
+Route::post('/my_teams/adduser',[UserController::class,'adduser']);
+
+Route::get('/my_teams/editmember/{id}', function ($id) {
+    $user = DB::table('users')->where('id', $id)->first();
+    return view('admin.update_member', compact('user'));
+});
+
+
+Route::put('/my_teams/updateuser/{id}',[UserController::class,'updateuser']);
+
+
+Route::put('/Unactivateuser/{id}',[UserController::class,'Unactivateuser']);
+Route::put('/activateuser/{id}',[UserController::class,'activateuser']);
+
+
+Route::get('password/reset/{token}/{email}', [RegisterController::class, 'showResetPasswordForm'])->name('password.reset');
+Route::post('password/update', [RegisterController::class, 'processPasswordReset'])->name('process.password.reset');
+Route::post('/forget-password', [RegisterController::class, 'forgetPassword'])->name('forget.password');
 
 
 /*----------------------------------------------------vente--------------------------------------------*/

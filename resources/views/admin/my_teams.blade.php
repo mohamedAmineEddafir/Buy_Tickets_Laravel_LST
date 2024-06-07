@@ -1,5 +1,70 @@
 @extends('admin_layout.mastrAdmin')
 @section('content')
+	<!-- Invite Team Member Model Start-->
+	<div class="modal fade" id="inviteTeamModal" tabindex="-1" aria-labelledby="inviteTeamModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="inviteTeamModalLabel">Add Member</h5>
+					<button type="button" class="close-model-btn" data-bs-dismiss="modal" aria-label="Close"><i class="uil uil-multiply"></i></button>
+				</div>
+				<div class="modal-body">
+                    @if (Session::has("success"))
+						<div class="alert alert-success">
+							{{Session::get('success')}}
+						</div>
+					@endif
+				    @if(Session::has('error'))
+						<div class="alert alert-danger">
+							{{Session::get('error')}}
+						</div>
+                    @endif	
+                    <form action="{{ url('/my_teams/adduser') }}" method="POST">
+                        @csrf
+                        <div class="model-content main-form">
+                            <div class="form-group mt-30">
+                                <label class="form-label">First Name</label>
+                                <input class="form-control h_40" type="text" name="first_name" placeholder="Enter First Name" value="">
+                            </div>
+                            <div class="form-group mt-30">
+                                <label class="form-label">Last Name</label>
+                                <input class="form-control h_40" type="text" name="last_name" placeholder="Enter Last Name" value="">
+                            </div>
+                            <div class="form-group mt-30">
+                                <label class="form-label">Email</label>
+                                <input class="form-control h_40" type="text" name="email" placeholder="Enter Email" value="">
+                            </div>
+                            <div class="form-group mt-30">
+                                <label class="form-label">Phone</label>
+                                <input class="form-control h_40" type="text" name="phone" placeholder="Enter Phone" value="">
+                            </div>
+                            <div class="form-group mt-30">
+                                <label class="form-label">Password</label>
+                                <input class="form-control h_40" type="password" name="password" placeholder="Enter Password" value="">
+                            </div>
+                            
+                            <div class="form-group mt-30">
+                                <label class="form-label">Role</label>
+                                <select class="selectpicker" name="role" title="Select Role">
+                                    <option value="Admin">Admin</option>
+                                    <option value="Client">Client</option>
+                                </select>																							
+                            </div>
+                            
+                           
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="co-main-btn min-width btn-hover h_40" data-bs-dismiss="modal">Cancel</button>
+                            <button type="submit" class="main-btn min-width btn-hover h_40">Add</button>
+                        </div>
+                    </form>
+					
+				</div>
+				
+			</div>
+		</div>
+	</div>
+	<!-- Invite Team Member Model End-->
     <div class="wrapper wrapper-body">
         <div class="dashboard-body">
             <div class="container-fluid">
@@ -16,10 +81,9 @@
                                     <div class="d-md-flex flex-wrap align-items-center">
                                         <div class="nav custom2-tabs btn-group" role="tablist">
                                             <button class="tab-link ms-0 active" data-bs-toggle="tab" data-bs-target="#overview-tab" type="button" role="tab" aria-controls="overview-tab" aria-selected="true">Overview</button>
-                                            <button class="tab-link" data-bs-toggle="tab" data-bs-target="#role-tab" type="button" role="tab" aria-controls="role-tab" aria-selected="false">Role</button>
                                         </div>
                                         <div class="rs ms-auto mt_r4">
-                                            <button class="main-btn btn-hover h_40 w-100" data-bs-toggle="modal" data-bs-target="#inviteTeamModal">Invite a Team Member</button>
+											<button class="main-btn btn-hover h_40 w-100" data-bs-toggle="modal" data-bs-target="#inviteTeamModal">Add a Team Member</button>
                                         </div>
                                     </div>
                                 </div>
@@ -32,314 +96,139 @@
                                                 <table class="table">
                                                     <thead class="thead-dark">
                                                         <tr>
-                                                            <th scope="col">Name</th>
+                                                            
+                                                            <th scope="col">First Name</th>
+                                                            <th scope="col">Last Name</th>
                                                             <th scope="col">Email</th>
+                                                            <th scope="col">Phone</th>
                                                             <th scope="col">Role</th>
-                                                            <th scope="col">Last Login</th>
-                                                            <th scope="col">2FA Enable</th>
+                                                            <th scope="col">Key</th>
                                                             <th scope="col">Action</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
-                                                        <tr>										
-                                                            <td>John Doe</td>	
-                                                            <td>johndoe@example.com</td>	
-                                                            <td>Account Owner</td>	
-                                                            <td>20 May 22, 10.27 AM</td>	
-                                                            <td>No</td>	
-                                                            <td><span class="action-btn disabled"><i class="fa-solid fa-lock"></i></span></td>	
-                                                        </tr>
-                                                        <tr>										
-                                                            <td>Rock Smith</td>	
-                                                            <td>rocksmith@example.com</td>	
-                                                            <td>Basic access</td>	
-                                                            <td>20 May 22, 11.15 AM</td>	
-                                                            <td>No</td>	
-                                                            <td><span class="action-btn"><i class="fa-solid fa-trash-can"></i></span></td>	
-                                                        </tr>
-                                                        <tr>										
-                                                            <td>Jassica William</td>	
-                                                            <td>jassicawilliam@example.com</td>	
-                                                            <td>Finance</td>	
-                                                            <td>20 May 22, 11.45 AM</td>	
-                                                            <td>No</td>	
-                                                            <td><span class="action-btn"><i class="fa-solid fa-trash-can"></i></span></td>	
-                                                        </tr>
-                                                        <tr>										
-                                                            <td>Lizzy Wizzy</td>	
-                                                            <td>lizzywizzy@example.com</td>	
-                                                            <td>Power User</td>	
-                                                            <td>20 May 22, 12.20 PM</td>	
-                                                            <td>No</td>	
-                                                            <td><span class="action-btn"><i class="fa-solid fa-trash-can"></i></span></td>	
-                                                        </tr>
+                                                        @foreach($users as $user)
+                                                            <tr  data-id="{{ $user->id }}" data-first_name="{{ $user->firstName }}" data-last_name="{{ $user->lastName }}" data-email="{{ $user->email }}" data-phone="{{ $user->phone }}" data-role="{{ $user->role }}">										
+                                                                <td>{{ $user->firstName }}</td>	
+                                                                <td>{{ $user->lastName }}</td>	
+                                                                <td>{{ $user->email }}</td>	
+                                                                <td>{{ $user->phone }}</td>	
+                                                                <td>{{ $user->role }}</td>	
+                                                                <td>
+
+
+                                                                    @if($user->key == 1)
+                                                                    <form action="{{url('Unactivateuser/'.$user->id)}}" method="POST">
+                                                                      @csrf
+                                                                      @method('PUT')
+                                                                      <input type="submit" class="btn btn-success"  value="Activate" >
+                                                                     
+                                                                    </form> 
+                                                                    @else  
+                                                                    <form action="{{url('activateuser/'.$user->id)}}" method="POST">
+                                                                      @csrf
+                                                                      @method('PUT')
+                                                                      <input type="submit" class="btn btn-warning" value="Unactivate" >
+                                                                     
+                                                                    </form> 
+                                                                    @endif
+                                                                </td>	
+
+                                                                <td>
+                                                                    <span class="action-btn" data-bs-toggle="modal" data-bs-target="#viewuser" onclick="showUserDetails(this)"><i class="fa-solid fa-eye"></i></span>
+                                                                    <a href="{{ url('my_teams/editmember/'.$user->id) }}" ><i class="fa-solid fa-edit"></i></a>
+
+
+                                                                </td>	
+                                                                
+                                                            </tr>
+                                                        @endforeach
+                                                        
                                                     </tbody>									
                                                 </table>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="tab-pane fade" id="role-tab" role="tabpanel">
-                                    <div class="role-slider-content mt-4">
-                                        <div class="owl-carousel role-slider owl-theme">
-                                            <div class="item">
-                                                <div class="main-card">
-                                                    <div class="role-header">
-                                                        <h6>Account Owner</h6>
-                                                        <span>1 per account</span>
-                                                    </div>
-                                                    <div class="role-body-content">
-                                                        <div class="role-item">
-                                                            <i class="fa-solid fa-check"></i>
-                                                            <span>Banking</span>
-                                                        </div>
-                                                        <div class="role-item">
-                                                            <i class="fa-solid fa-check"></i>
-                                                            <span>Team members</span>
-                                                        </div>
-                                                        <div class="role-item">
-                                                            <i class="fa-solid fa-check"></i>
-                                                            <span>Events</span>
-                                                        </div>
-                                                        <div class="role-item">
-                                                            <i class="fa-solid fa-check"></i>
-                                                            <span>Reports</span>
-                                                        </div>
-                                                        <div class="role-item">
-                                                            <i class="fa-solid fa-check"></i>
-                                                            <span>Customer service</span>
-                                                        </div>
-                                                        <div class="role-item">
-                                                            <i class="fa-solid fa-check"></i>
-                                                            <span>Amend bookings</span>
-                                                        </div>
-                                                        <div class="role-item">
-                                                            <i class="fa-solid fa-check"></i>
-                                                            <span>Gift certificates</span>
-                                                        </div>
-                                                        <div class="role-item">
-                                                            <i class="fa-solid fa-check"></i>
-                                                            <span>Marketing tools</span>
-                                                        </div>
-                                                        <div class="role-item">
-                                                            <i class="fa-solid fa-check"></i>
-                                                            <span>Integration tools</span>
-                                                        </div>
-                                                        <div class="role-item">
-                                                            <i class="fa-solid fa-check"></i>
-                                                            <span>Scanning app</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="item">
-                                                <div class="main-card">
-                                                    <div class="role-header">
-                                                        <h6>Power user</h6>
-                                                        <span>Unlimited</span>
-                                                    </div>
-                                                    <div class="role-body-content">
-                                                        <div class="role-item">
-                                                            <i class="fa-solid fa-xmark i-disabled"></i>
-                                                            <span>Banking</span>
-                                                        </div>
-                                                        <div class="role-item">
-                                                            <i class="fa-solid fa-check"></i>
-                                                            <span>Team members</span>
-                                                        </div>
-                                                        <div class="role-item">
-                                                            <i class="fa-solid fa-check"></i>
-                                                            <span>Events</span>
-                                                        </div>
-                                                        <div class="role-item">
-                                                            <i class="fa-solid fa-check"></i>
-                                                            <span>Reports</span>
-                                                        </div>
-                                                        <div class="role-item">
-                                                            <i class="fa-solid fa-check"></i>
-                                                            <span>Customer service</span>
-                                                        </div>
-                                                        <div class="role-item">
-                                                            <i class="fa-solid fa-check"></i>
-                                                            <span>Amend bookings</span>
-                                                        </div>
-                                                        <div class="role-item">
-                                                            <i class="fa-solid fa-check"></i>
-                                                            <span>Gift certificates</span>
-                                                        </div>
-                                                        <div class="role-item">
-                                                            <i class="fa-solid fa-check"></i>
-                                                            <span>Marketing tools</span>
-                                                        </div>
-                                                        <div class="role-item">
-                                                            <i class="fa-solid fa-check"></i>
-                                                            <span>Integration tools</span>
-                                                        </div>
-                                                        <div class="role-item">
-                                                            <i class="fa-solid fa-check"></i>
-                                                            <span>Scanning app</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="item">
-                                                <div class="main-card">
-                                                    <div class="role-header">
-                                                        <h6>Finance</h6>
-                                                        <span>Unlimited</span>
-                                                    </div>
-                                                    <div class="role-body-content">
-                                                        <div class="role-item">
-                                                            <i class="fa-solid fa-check"></i>
-                                                            <span>Banking</span>
-                                                        </div>
-                                                        <div class="role-item">
-                                                            <i class="fa-solid fa-xmark i-disabled"></i>
-                                                            <span>Team members</span>
-                                                        </div>
-                                                        <div class="role-item">
-                                                            <i class="fa-solid fa-xmark i-disabled"></i>
-                                                            <span>Events</span>
-                                                        </div>
-                                                        <div class="role-item">
-                                                            <i class="fa-solid fa-check"></i>
-                                                            <span>Reports</span>
-                                                        </div>
-                                                        <div class="role-item">
-                                                            <i class="fa-solid fa-xmark i-disabled"></i>
-                                                            <span>Customer service</span>
-                                                        </div>
-                                                        <div class="role-item">
-                                                            <i class="fa-solid fa-xmark i-disabled"></i>
-                                                            <span>Amend bookings</span>
-                                                        </div>
-                                                        <div class="role-item">
-                                                            <i class="fa-solid fa-xmark"></i>
-                                                            <span>Gift certificates</span>
-                                                        </div>
-                                                        <div class="role-item">
-                                                            <i class="fa-solid fa-xmark i-disabled"></i>
-                                                            <span>Marketing tools</span>
-                                                        </div>
-                                                        <div class="role-item">
-                                                            <i class="fa-solid fa-xmark i-disabled"></i>
-                                                            <span>Integration tools</span>
-                                                        </div>
-                                                        <div class="role-item">
-                                                            <i class="fa-solid fa-xmark i-disabled"></i>
-                                                            <span>Scanning app</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="item">
-                                                <div class="main-card">
-                                                    <div class="role-header">
-                                                        <h6>Basic access</h6>
-                                                        <span>Unlimited</span>
-                                                    </div>
-                                                    <div class="role-body-content">
-                                                        <div class="role-item">
-                                                            <i class="fa-solid fa-xmark i-disabled"></i>
-                                                            <span>Banking</span>
-                                                        </div>
-                                                        <div class="role-item">
-                                                            <i class="fa-solid fa-xmark i-disabled"></i>
-                                                            <span>Team members</span>
-                                                        </div>
-                                                        <div class="role-item">
-                                                            <i class="fa-solid fa-check"></i>
-                                                            <span>Events</span>
-                                                        </div>
-                                                        <div class="role-item">
-                                                            <i class="fa-solid fa-check"></i>
-                                                            <span>Reports</span>
-                                                        </div>
-                                                        <div class="role-item">
-                                                            <i class="fa-solid fa-check"></i>
-                                                            <span>Customer service</span>
-                                                        </div>
-                                                        <div class="role-item">
-                                                            <i class="fa-solid fa-xmark i-disabled"></i>
-                                                            <span>Amend bookings</span>
-                                                        </div>
-                                                        <div class="role-item">
-                                                            <i class="fa-solid fa-check"></i>
-                                                            <span>Gift certificates</span>
-                                                        </div>
-                                                        <div class="role-item">
-                                                            <i class="fa-solid fa-check"></i>
-                                                            <span>Marketing tools</span>
-                                                        </div>
-                                                        <div class="role-item">
-                                                            <i class="fa-solid fa-xmark i-disabled"></i>
-                                                            <span>Integration tools</span>
-                                                        </div>
-                                                        <div class="role-item">
-                                                            <i class="fa-solid fa-check"></i>
-                                                            <span>Scanning app</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="item">
-                                                <div class="main-card">
-                                                    <div class="role-header">
-                                                        <h6>Producer access</h6>
-                                                        <span>1 per event</span>
-                                                    </div>
-                                                    <div class="role-body-content">
-                                                        <div class="role-item">
-                                                            <i class="fa-solid fa-xmark i-disabled"></i>
-                                                            <span>Banking</span>
-                                                        </div>
-                                                        <div class="role-item">
-                                                            <i class="fa-solid fa-xmark i-disabled"></i>
-                                                            <span>Team members</span>
-                                                        </div>
-                                                        <div class="role-item">
-                                                            <i class="fa-solid fa-xmark i-disabled"></i>
-                                                            <span>Events</span>
-                                                        </div>
-                                                        <div class="role-item">
-                                                            <i class="fa-solid fa-check"></i>
-                                                            <span>Reports</span>
-                                                        </div>
-                                                        <div class="role-item">
-                                                            <i class="fa-solid fa-xmark i-disabled"></i>
-                                                            <span>Customer service</span>
-                                                        </div>
-                                                        <div class="role-item">
-                                                            <i class="fa-solid fa-xmark i-disabled"></i>
-                                                            <span>Amend bookings</span>
-                                                        </div>
-                                                        <div class="role-item">
-                                                            <i class="fa-solid fa-xmark i-disabled"></i>
-                                                            <span>Gift certificates</span>
-                                                        </div>
-                                                        <div class="role-item">
-                                                            <i class="fa-solid fa-xmark i-disabled"></i>
-                                                            <span>Marketing tools</span>
-                                                        </div>
-                                                        <div class="role-item">
-                                                            <i class="fa-solid fa-xmark i-disabled"></i>
-                                                            <span>Integration tools</span>
-                                                        </div>
-                                                        <div class="role-item">
-                                                            <i class="fa-solid fa-check"></i>
-                                                            <span>Scanning app</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                          
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>   
+    </div> 
+    
+    
+    	<!-- Invite Team Member Model Start-->
+	<div class="modal fade" id="viewuser" tabindex="-1" aria-labelledby="inviteTeamModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="inviteTeamModalLabel">Member Details</h5>
+					<button type="button" class="close-model-btn" data-bs-dismiss="modal" aria-label="Close"><i class="uil uil-multiply"></i></button>
+				</div>
+				<div class="modal-body">
+                   
+                    <div class="model-content main-form">
+                        <div class="form-group mt-30">
+                            <label class="form-label">First Name:</label>
+                            <label class="form-label" id="modalFirstName"></label>
+                        </div>
+                        <div class="form-group mt-30">
+                            <label class="form-label">Last Name:</label>
+                            <label class="form-label" id="modalLastName"></label>
+                        </div>
+                        <div class="form-group mt-30">
+                            <label class="form-label">Email:</label>
+                            <label class="form-label" id="modalEmail"></label>
+                        </div>
+                        <div class="form-group mt-30">
+                            <label class="form-label">Phone:</label>
+                            <label class="form-label" id="modalPhone"></label>
+                        </div>
+                        <div class="form-group mt-30">
+                            <label class="form-label">Role:</label>
+                            <label class="form-label" id="modalRole"></label>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="co-main-btn min-width btn-hover h_40" data-bs-dismiss="modal">Cancel</button>
+                       
+                    </div>
+                    
+					
+				</div>
+				
+			</div>
+		</div>
+	</div>
+	<!-- Invite Team Member Model End-->
+
+        
+
 @endsection
+
+
+<script>
+    function showUserDetails(element) {
+        var userRow = element.closest('tr');
+        var id = userRow.dataset.id;
+        var firstName = userRow.dataset.first_name;
+        var lastName = userRow.dataset.last_name;
+        var email = userRow.dataset.email;
+        var phone = userRow.dataset.phone;
+        var role = userRow.dataset.role;
+    
+        document.getElementById('modalFirstName').textContent = firstName;
+        document.getElementById('modalLastName').textContent = lastName;
+        document.getElementById('modalEmail').textContent = email;
+        document.getElementById('modalPhone').textContent = phone;
+        document.getElementById('modalRole').textContent = role;
+    }
+
+   
+    </script>
+
+
+
