@@ -133,22 +133,7 @@ Route::get('/dashbord', [DashboardController::class, 'show'])->name('dashbord');
 
 /*+++++++++++++++++++++++++++++++++++++++++++++++++++/ Events Start /+++++++++++++++++++++++++++++++++++++++++++++++++*/
 
-<<<<<<< HEAD
-
- // get data with url withOut controller
- Route::get('/events', function (Request $request) {
-        $search = $request->input('search');
- });   
-
- // get data with url withOut controller
- Route::get('/events', function (Request $request) {
-        $search = $request->input('search');
- });
-
- Route::get('/events', function (Request $request) {
-=======
 Route::get('/events', function (Request $request) {
->>>>>>> a987029edc65355fe84ea3a4332fde6a194fcb57
     $search = $request->input('search');
 
     // Construire la requête de base avec jointure
