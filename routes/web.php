@@ -110,7 +110,7 @@ Route::get('/confirmeTicket', [AchatController::class, 'confirmeTicket'])->name(
 Route::get('/venue_event_detail_view/{id}', [EventController::class, 'showEvente'])->name('venue_event_detail_view.show');
 
 Route::get('/achat/{id}', [EventController::class, 'showprice'])->name('achat.show');
-Route::post('/achat', [AchatController::class, 'achat'])->name('achat.achat');
+
 Route::get('/confirmeTicket/{id}', [AchatController::class, 'showpConfirmation'])->name('confirmeTicketId');
 
 Route::get('/tickt_finale/{id}', [AchatController::class, 'showpticktfinale'])->name('tickt_finale.show');
