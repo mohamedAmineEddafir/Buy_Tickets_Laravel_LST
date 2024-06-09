@@ -28,6 +28,11 @@ class RegisterController extends Controller
             return redirect()->back()->withInput()->with('error', 'Password and password confirmation do not match.');
         } */
 
+        $existingUser = DB::table('users')->where('email', $email)->first();
+        if ($existingUser) {
+            return redirect()->back()->withInput()->with('error', 'Email already exists.');
+        }
+
         // Generate a random password
         $password = Str::random(8);
 

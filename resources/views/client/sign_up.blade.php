@@ -62,6 +62,11 @@
                         </div>
                         <div class="col-xl-5 col-lg-6 col-md-7">
                             <div class="registration">
+                                @if(Session::has('error'))
+                                    <div class="alert alert-danger">
+                                        {{Session::get('error')}}
+                                    </div>
+                                @endif	
 
                                 <form action="{{ route('register') }}" method="POST" enctype="multipart/form-data">
                                     @csrf
@@ -139,6 +144,22 @@
             </div>
         </div>
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(function() {
+                var alert = document.querySelector('.alert');
+                if (alert) {
+                    alert.classList.remove('show');
+                    alert.classList.add('fade');
+                    setTimeout(function() {
+                        alert.style.display = 'none';
+                    }, 500); 
+                }
+            }, 3000); 
+        });
+    </script>
+    
 
     <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
     <script src="{{ asset('assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>

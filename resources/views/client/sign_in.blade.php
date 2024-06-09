@@ -84,7 +84,7 @@
 									<div class="form-group mt-4">
 										<div class="field-password">
 											<label class="form-label">Password*</label>
-											<a class="forgot-pass-link"  href="forgot_password.html">Forgot Password?</a>
+											<a class="forgot-pass-link"  href="/forgot_password">Forgot Password?</a>
 										</div>
 										<div class="loc-group position-relative">
 											<input class="form-control h_50" name="password" type="password" placeholder="Enter your password" required>
@@ -116,6 +116,22 @@
 			</div>			
 		</div>
 	</div>
+
+
+	<script>
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(function() {
+                var alert = document.querySelector('.alert');
+                if (alert) {
+                    alert.classList.remove('show');
+                    alert.classList.add('fade');
+                    setTimeout(function() {
+                        alert.style.display = 'none';
+                    }, 500); 
+                }
+            }, 3000); 
+        });
+    </script>
 	
 	<script src="{{asset('assets/js/jquery.min.js')}}"></script>
 	<script src="{{asset('assets/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
