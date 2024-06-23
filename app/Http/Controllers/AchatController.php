@@ -47,28 +47,25 @@ class AchatController extends Controller
       return view('client.confirmeTicket', ['event' => $event]);
     }
 
-    public function showpticktfinale($id)
-    {
-      $event = Event::find($id);
-      $event = Event::join('users', 'events.user_id', '=', 'users.id')
-                        ->select('events.*', 'users.firstName', 'users.lastName')
-                        ->find($id);
-      return view('client.tickt_finale', ['event' => $event]);
-    }
-
-    // public function tickets($id)
+    // public function showpticktfinale($id)
     // {
-    //      $event = Event::findOrFail($id);
-    //      $event = Event::join('users', 'events.user_id', '=', 'users.id')
-    //      ->select('events.*', 'users.firstName', 'users.lastName')
-    //      ->find($id);
-    // // Générer le contenu du ticket PDF
-    // $pdf =\Barryvdh\DomPDF\Facade\PDF::loadView('client.tickt_finale', compact('event'))
-    //             ->setPaper('a4') // Définir le format de papier si nécessaire
-    //             ->setOptions(['defaultFont' => 'sans-serif']); // Définir la police par défaut
-
-    // // Retourner le contenu PDF pour affichage ou téléchargement
-    // return $pdf->stream('tickt_finale.pdf');
+    //   $event = Event::find($id);
+    //   $event = Event::join('users', 'events.user_id', '=', 'users.id')
+    //                     ->select('events.*', 'users.firstName', 'users.lastName')
+    //                     ->find($id);
+    //   return view('client.tickt_finale', ['event' => $event]);
     // }
+
+     public function showpticktfinale($id)
+     {
+         $event = Event::findOrFail($id);
+
+        // Générer le contenu de l'attestation PDF
+        $pdf = \Barryvdh\DomPDF\Facade\Pdf::loadView('client.tickt_finale', compact('event'));
+
+        // Retourner le contenu PDF pour affichage ou téléchargement
+        return $pdf->stream('tickt_finale.pdf');
+    
+      }
     
 }
