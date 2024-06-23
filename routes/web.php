@@ -90,7 +90,6 @@ Route::get('/achat', function () {
 });
 
 
-
 Route::get('auth/google', [LoginnController::class, 'redirectToGoogle']);
 
 Route::get('auth/google/callback', [LoginnController::class, 'handleGoogleCallback']);
@@ -103,17 +102,18 @@ Route::post('/Logout', [LogoutController::class, 'logout'])->name('logout');
 
 Route::post('/create_event', [EventController::class, 'store'])->name('create_event');
 
-Route::post('/achat', [AchatController::class, 'achat'])->name('achat.achat');
-
 Route::get('/confirmeTicket', [AchatController::class, 'confirmeTicket'])->name('confirmeTicket');
 
 Route::get('/venue_event_detail_view/{id}', [EventController::class, 'showEvente'])->name('venue_event_detail_view.show');
 
 Route::get('/achat/{id}', [EventController::class, 'showprice'])->name('achat.show');
+
 Route::post('/achat', [AchatController::class, 'achat'])->name('achat.achat');
+
 Route::get('/confirmeTicket/{id}', [AchatController::class, 'showpConfirmation'])->name('confirmeTicketId');
 
 Route::get('/tickt_finale/{id}', [AchatController::class, 'showpticktfinale'])->name('tickt_finale.show');
+
 // Route::get('/tickt_finale/{id}', [AchatController::class, 'tickets'])->name('tickt_finale.generate');
 
 /*----------------------------------------------------Admin--------------------------------------------*/

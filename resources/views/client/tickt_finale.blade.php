@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-<html lang="en" class="h-100">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,6 +11,7 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
+            width: 100vw;
             margin: 0;
             background-color: #f5f5f5;
         }
@@ -21,7 +21,7 @@
             overflow: hidden;
             width: 300px;
             background-color: #fff;
-            margin-left: 31%
+            margin-left: 31%;
         }
         .ticket-container img {
             width: 100%;
@@ -67,8 +67,8 @@
             color: #999;
             font-size: 12px;
         }
-        .spane{
-          text-align: center;
+        .spane {
+            text-align: center;
         }
     </style>
 </head>
@@ -77,22 +77,23 @@
         <img src="{{ public_path('images/' . $event->image) }}" alt="">
         <div class="ticket-content">
             <h2>{{ $event->event_name }}</h2>
-            <p> {{ $event->date }} , {{ $event->time }} AM. ,  {{ $event->duration }} h</p>
+            <p>{{ $event->date }}, {{ $event->time }} AM, {{ $event->duration }} h</p>
             <p>{{ $event->firstName }} {{ $event->lastName }}</p>
             <div class="ticket-info">
-                <p style="color: #000000"> 1 x Ticket</p><br>
-                <p style="color: #000000"> Total : {{ $event->price }} Dhs</p>
+                <p style="color: #000000">1 x Ticket</p>
+                <p style="color: #000000">Total: {{ $event->price }} Dhs</p>
             </div>
         </div>
         <div class="ticket-right">
             <h3>{{ $event->venue }}</h3>
-            <img src="https://via.placeholder.com/100" alt="QR Code">
+            <img src="data:image/png;base64,{{ $codeQR }}" alt="QR Code">
             <p class="powered-by">Powered by Barren</p>
         </div>
     </div>
-    <meta charset="utf-8">
+
+    <!-- Additional meta tags and links -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, shrink-to-fit=9">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Barren - Simple Online Event Ticketing System</title>
     <link rel="icon" type="image/png" href="images/fav.png">
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
@@ -105,5 +106,5 @@
     <link rel="stylesheet" href="{{ asset('assets/vendor/OwlCarousel/assets/owl.theme.default.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/vendor/bootstrap/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/vendor/bootstrap-select/dist/css/bootstrap-select.min.css') }}">
-</head>
 </body>
+</html>
