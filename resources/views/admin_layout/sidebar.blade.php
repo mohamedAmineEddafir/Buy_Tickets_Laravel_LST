@@ -21,9 +21,9 @@
                     </a>
                 </li>
                 <li class="menu--item">
-                    <a href="{{url('/demande')}}" class="menu--link" title="Contact List" data-bs-toggle="tooltip" data-bs-placement="right">
+                    <a href="{{url('/vente')}}" class="menu--link" title="Contact List" data-bs-toggle="tooltip" data-bs-placement="right">
                         <i class="fa-regular fa-address-card menu--icon"></i>
-                        <span class="menu--label">Demande List</span>
+                        <span class="menu--label">Vente</span>
                     </a>
                 </li>
                 <li class="menu--item">
