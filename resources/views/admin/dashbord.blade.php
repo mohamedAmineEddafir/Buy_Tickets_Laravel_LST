@@ -89,18 +89,18 @@
                                     <img src="{{asset('assets/images/profile-imgs/img-13.jpg')}}" alt="">
                                 </div>
                                 <div class="ocard-name">
-                                    <h4>John Doe</h4>
-                                    <span>My Organisation</span>
+                                    <h4>{{Session::get('username')}}</h4>
+
                                 </div>
                             </div>
-                            <div class="ocard-right">
+{{--                             <div class="ocard-right">
                                 <button class="pe-4 ps-4 co-main-btn min-width" data-bs-toggle="modal" data-bs-target="#addorganisationModal"><i class="fa-solid fa-plus"></i>Add Organisation</button>
-                            </div>
+                            </div> --}}
                         </div>
                         <div class="main-card mt-4">
                             <div class="dashboard-wrap-content">
                                 <div class="d-flex flex-wrap justify-content-between align-items-center p-4">
-                                    <div class="dashboard-date-wrap d-flex flex-wrap justify-content-between align-items-center">
+{{--                                     <div class="dashboard-date-wrap d-flex flex-wrap justify-content-between align-items-center">
                                         <div class="dashboard-date-arrows">
                                             <a href="#" class="before_date"><i class="fa-solid fa-angle-left"></i></a>
                                             <a href="#" class="after_date disabled"><i class="fa-solid fa-angle-right"></i></a>
@@ -110,7 +110,7 @@
                                             -
                                             <span>30th April, 2022</span>
                                         </h5>
-                                    </div>
+                                    </div> --}}
                                     <div class="rs">
                                         <div class="dropdown dropdown-text event-list-dropdown">
                                             <button class="dropdown-toggle event-list-dropdown" type="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -127,17 +127,17 @@
                                         <div class="col-xl-3 col-lg-6 col-md-6">
                                             <div class="dashboard-report-card purple">
                                                 <div class="card-content">
-                                                    <div class="card-content">
-                                                        <span class="card-title fs-6">Revenue (AUD)</span>
-                                                        <span class="card-sub-title fs-3">$550.00</span>
-                                                        <div class="d-flex align-items-center">
+                                                    <div class="card-content"> 
+                                                        <span class="card-title fs-6">Total Users:</span>
+                                                        <span class="card-sub-title fs-3">{{ $totalUsers }}</span>
+                                                        {{--< div class="d-flex align-items-center">
                                                             <span><i class="fa-solid fa-arrow-trend-up"></i></span>
                                                             <span class="text-Light font-12 ms-2 me-2">0.00%</span>
                                                             <span class="font-12 color-body text-nowrap">From Previous Period</span>
-                                                        </div>
+                                                        </> --}}
                                                     </div>
                                                     <div class="card-media">
-                                                        <i class="fa-solid fa-money-bill"></i>
+                                                        <i class="fa-solid fa-users"></i>
                                                     </div>
                                                 </div>
                                             </div>
@@ -146,21 +146,21 @@
                                             <div class="dashboard-report-card red">
                                                 <div class="card-content">
                                                     <div class="card-content">
-                                                        <span class="card-title fs-6">Orders</span>
-                                                        <span class="card-sub-title fs-3">2</span>
-                                                        <div class="d-flex align-items-center">
+                                                        <span class="card-title fs-6">Total Events:</span>
+                                                        <span class="card-sub-title fs-3">{{ $totalEvents }}</span>
+                                                       {{--  <div class="d-flex align-items-center">
                                                             <span><i class="fa-solid fa-arrow-trend-up"></i></span>
                                                             <span class="text-Light font-12 ms-2 me-2">0.00%</span>
                                                             <span class="font-12 color-body text-nowrap">From Previous Period</span>
-                                                        </div>
+                                                        </div> --}}
                                                     </div>
                                                     <div class="card-media">
-                                                        <i class="fa-solid fa-box"></i>
+                                                        <i class="fa-solid fa-calendar"></i>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-xl-3 col-lg-6 col-md-6">
+{{--                                         <div class="col-xl-3 col-lg-6 col-md-6">
                                             <div class="dashboard-report-card info">
                                                 <div class="card-content">
                                                     <div class="card-content">
@@ -177,18 +177,18 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div> --}}
                                         <div class="col-xl-3 col-lg-6 col-md-6">
                                             <div class="dashboard-report-card success">
                                                 <div class="card-content">
                                                     <div class="card-content">
                                                         <span class="card-title fs-6">Ticket Sales</span>
-                                                        <span class="card-sub-title fs-3">3</span>
-                                                        <div class="d-flex align-items-center">
+                                                        <span class="card-sub-title fs-3">{{$totalAchat}}</span>
+                                                        {{-- <div class="d-flex align-items-center">
                                                             <span><i class="fa-solid fa-arrow-trend-up"></i></span>
                                                             <span class="text-Light font-12 ms-2 me-2">0.00%</span>
                                                             <span class="font-12 color-body text-nowrap">From Previous Period</span>
-                                                        </div>
+                                                        </div> --}}
                                                     </div>
                                                     <div class="card-media">
                                                         <i class="fa-solid fa-ticket"></i>
@@ -200,7 +200,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="main-card mt-4">
+{{--                         <div class="main-card mt-4">
                             <div class="d-flex flex-wrap justify-content-between align-items-center border_bottom p-4">
                                 <div class="dashboard-date-wrap d-flex flex-wrap justify-content-between align-items-center">
                                     <div class="select-graphic-category">
@@ -229,7 +229,7 @@
                             <div class="item-analytics-content p-4 ps-1 pb-2">
                                 <div id="views-graphic"></div>
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
             </div>

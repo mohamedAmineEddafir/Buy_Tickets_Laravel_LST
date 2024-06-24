@@ -19,14 +19,20 @@ class LoginController extends Controller
 
         if ($user && $password === $user->password) {
 
-            Session::put('email', $email);
-            Session::put('id', $user->id);
-            Session::put('role', $user->role);
-
-            // Log the user in using Laravel's authentication system
-            Auth::loginUsingId($user->id);
-
-            return redirect()->route('client.index');
+            if ($user->key == 1) {
+                Session::put('email', $email);
+                Session::put('id', $user->id);
+                Session::put('role', $user->role);
+                Session::put('username', $user->username);
+    
+                // Log the user in using Laravel's authentication system
+                Auth::loginUsingId($user->id);
+    
+                return redirect()->route('client.index');
+            } elseif ($user->key == 0) {
+                return redirect()->back()->with('error', 'Your account is suspended')->withInput();
+            }
+            
         } else {
             return redirect()->back()->with('error', 'Invalid Email or Password')->withInput();
         }

@@ -181,7 +181,9 @@ Route::get('/my_teams', function () {
     if (Session::get('email') === null) {
         return redirect()->route('login');
     }
-    $users = DB::table('users')->get();
+    $users = DB::table('users')
+    ->where('role', 'Client')
+    ->get();
 
     return view('admin.my_teams', compact('users'));
 });

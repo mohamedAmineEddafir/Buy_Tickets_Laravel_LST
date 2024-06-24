@@ -57,8 +57,8 @@
                                         <div class="account-holder-avatar">
                                             <img src="{{asset('assets/images/profile-imgs/img-13.jpg')}}" alt="">
                                         </div>
-                                        <h5>John Doe</h5>
-                                        <p>johndoe@example.com</p>
+                                        <h5>{{Session::get('username')}}</h5>
+                                        <p>{{Session::get('email')}}</p>
                                     </div>
                                 </li>
                                 <li class="profile-link">
