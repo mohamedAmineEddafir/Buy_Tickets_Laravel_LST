@@ -38,7 +38,7 @@ class AchatController extends Controller
         $country = $request->input('country');
         $city = $request->input('city');
 
-        $userId = Session::get('id'); // Retrieve user ID from session
+        $userId = Session::get('id');
         $achatId = DB::table('achat')->insertGetId([
             'firstName' => $firstName,
             'lastName' => $lastName,
@@ -49,7 +49,7 @@ class AchatController extends Controller
             'user_id' => $userId,
         ]);
 
-        // Generate a unique QR code using the user ID and purchase ID
+        // Generate a unique QR code using id
         $codeQR = $this->generateUniqueQRCode($userId, $achatId);
 
         // Update the purchase record with the generated QR code
@@ -75,9 +75,8 @@ class AchatController extends Controller
         $event = Event::join('users', 'events.user_id', '=', 'users.id')
             ->select('events.*', 'users.firstName', 'users.lastName')
             ->findOrFail($id);
-
-        // Get QR code from session
-        $codeQR = Session::get('codeQR');
+            
+        //$codeQR = Session::get('codeQR');
 
         // Check the format parameter
         $format = $request->query('format', 'html');

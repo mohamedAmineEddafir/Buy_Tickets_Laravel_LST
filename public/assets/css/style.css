@@ -3376,6 +3376,10 @@ body {
     padding: 0 1.5rem;
 }
 
+.dashboard-report-content  .row{
+    justify-content: space-around;
+}
+
 .dashboard-report-card {
     position: relative;
     margin-bottom: 1.5rem;

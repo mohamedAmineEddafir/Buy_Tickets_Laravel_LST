@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\DB;
 
 class DashboardController extends Controller
 {
@@ -15,7 +16,11 @@ class DashboardController extends Controller
         }
 
         if(Session::get('role') === 'admin') {
-            return view('admin.dashbord');
+            $totalUsers = DB::table('users')->count();
+            $totalEvents = DB::table('events')->count();
+            $totalAchat = DB::table('achat')->count();
+            
+            return view('admin.dashbord', compact('totalUsers', 'totalEvents','totalAchat'));
         } else {
             return redirect()->route('client.index');
         }
