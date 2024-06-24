@@ -174,15 +174,12 @@ Route::get('/modify-Events', function () {
 });
 
 
-
-
-
 Route::get('/my_teams', function () {
     if (Session::get('email') === null) {
         return redirect()->route('login');
     }
     $users = DB::table('users')
-    ->where('role', 'Client')
+    ->where('role', 'user')
     ->get();
 
     return view('admin.my_teams', compact('users'));
@@ -210,8 +207,6 @@ Route::post('/forget-password', [RegisterController::class, 'forgetPassword'])->
 
 
 /*----------------------------------------------------vente--------------------------------------------*/
-
-
 
 
 Route::get('/vente', function (Request $request) {
